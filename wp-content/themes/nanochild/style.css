@@ -1,0 +1,159 @@
+/*
+Theme Name: NanoChild
+Version: 1.0
+Description: A child theme of Nanomag
+Template: nanomag
+Author: Administrator
+*/
+@import url("../nanomag/style.css");
+/* Your awesome customization starts here */
+
+.header_top_wrapper {
+    float: left;
+    width: 100%;
+    background: #0087d5;
+}
+
+.tickerfloat_wrapper {
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    background: #0087d5;
+}
+
+.love_this_post_meta {
+    background: #0087d5;
+    position: relative;
+    float: right;
+    padding: 0 6px !important;
+    height: 15px !important;
+    line-height: 14px !important;
+    float: right;
+    color: #fff;
+    font-size: 11px !important;
+    margin-top: -1px;
+    margin-bottom: 5px;
+}
+
+.love_this_post_meta:hover {
+    background: #0087d5;
+}
+
+.love_this_post_meta:hover:after {
+    border-top: 5px solid #0087d5;
+}
+
+
+
+.love_this_post_meta:after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 14px;
+    border-left: 8px solid rgba(0,0,0,0);
+    border-right: 0px solid rgba(0,0,0,0);
+    border-top: 5px solid #0087d5;
+}
+
+.more_button_post {
+    color: #FFF !important;
+    background: #0087d5;
+    margin-top: 10px;
+    font-size: 13px;
+    height: 27px;
+    line-height: 27px;
+    float: right;
+    padding: 0px 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s linear;
+    -moz-transition: background 0.3s linear;
+    -webkit-transition: background 0.3s linear;
+    -o-transition: background 0.3s linear;
+}
+
+.more_button_post:hover {
+    background: #222 !important;
+    color: #0087d5;
+    text-decoration: none !important;
+}
+
+}
+#searchsubmit, .woocommerce-product-search input[type="submit"]{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 0px 3px 3px 0px !important;
+    font-family: 'Open Sans', arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 16px;
+    background-color: #0087d5;
+    border-radius: 3px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 8px 15px 8px 15px;
+    cursor: pointer;
+    transition: background 0.3s linear;
+    -moz-transition: background 0.3s linear;
+    -webkit-transition: background 0.3s linear;
+    -o-transition: background 0.3s linear;
+}
+
+#searchsubmit:hover{ background: #0087d5;}
+
+.widget_product_search div, .widget_search div{ 
+    position: relative;
+}
+.widget-title, h3.widget-title {
+    float: left;
+    margin-bottom: 25px;
+    width: 100%;
+    border-bottom: 2px solid #0087d5;
+    padding: 0px;
+    text-transform: uppercase;
+}
+
+#go-top a {
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+    background: #0087d5;
+    font-size: 20px;
+    line-height: 36px;
+    cursor: pointer;
+}
+
+.single-post-title, .datepost-title {
+    font-size: 26px;
+    margin-bottom: 25px;
+    line-height: 34px;
+}
+
+.footer_meta {
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    padding: 5px 0px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 3px solid #0087d5;
+}
+
+html ul.tabs1 li.active, html ul.tabs1 li.active a, html ul.tabs1 li.active a:hover, html ul.hover_tab_post_large li.active, html ul.hover_tab_post_large li.active a, html ul.hover_tab_post_large li.active a:hover {
+    color: #FFF;
+    background-color: #0087d5;
+    height: 40px;
+    text-decoration: none !important;
+}
+
