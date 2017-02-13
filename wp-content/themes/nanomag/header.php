@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" <?php language_attributes(); ?>> <![endif]-->
-<!--[if !(IE)]><!--> <!--<![endif]-->
 <html <?php language_attributes(); ?>>
 	<head>
 		<!-- Basic Page Needs -->
-		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
 		<title><?php wp_title('|', true, 'right'); ?></title>
+
 		<!-- Mobile Specific Metas -->
 		<meta property="fb:pages" content="528518970501385" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Pragma" content="no-cache">
+
 		<!-- Favicons -->
 		<?php $favor_icon = of_get_option('favicon_uploader'); ?>
 		<link rel="shortcut icon" href="<?php if (!empty($favor_icon)){echo esc_attr($favor_icon);}else{echo esc_attr(get_template_directory_uri().'/img/favicon.png');} ?>" type="image/x-icon" />
