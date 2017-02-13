@@ -6,7 +6,7 @@ class Jetpack_Custom_CSS {
 		add_action( 'wp_restore_post_revision', array( __CLASS__, 'restore_revision' ), 10, 2 );
 
 		// Save revisions for posts of type safecss.
-		add_filter( 'revision_redirect', array( __CLASS__, 'revision_redirect' ) );
+		add_action( 'load-revision.php', array( __CLASS__, 'add_revision_redirect' ) );
 
 		// Override the edit link, the default link causes a redirect loop
 		add_filter( 'get_edit_post_link', array( __CLASS__, 'revision_post_link' ), 10, 3 );
@@ -214,6 +214,8 @@ class Jetpack_Custom_CSS {
 		$css = $orig = $args['css'];
 
 		$css = preg_replace( '/\\\\([0-9a-fA-F]{4})/', '\\\\\\\\$1', $prev = $css );
+		// prevent content: '\3434' from turning into '\\3434'
+		$css = str_replace( array( '\'\\\\', '"\\\\' ), array( '\'\\', '"\\' ), $css );
 
 		if ( $css != $prev )
 			$warnings[] = 'preg_replace found stuff';
@@ -341,6 +343,23 @@ class Jetpack_Custom_CSS {
 	 * @return int|bool The post ID if it exists; false otherwise.
 	 */
 	static function post_id() {
+		/**
+		 * Filter the ID of the post where Custom CSS is stored, before the ID is retrieved.
+		 *
+		 * If the callback function returns a non-null value, then post_id() will immediately
+		 * return that value, instead of retrieving the normal post ID.
+		 *
+		 * @module custom-css
+		 *
+		 * @since 3.8.1
+		 *
+		 * @param null null The ID to return instead of the normal ID.
+		 */
+		$custom_css_post_id = apply_filters( 'jetpack_custom_css_pre_post_id', null );
+		if ( ! is_null( $custom_css_post_id ) ) {
+			return $custom_css_post_id;
+		}
+
 		$custom_css_post_id = wp_cache_get( 'custom_css_post_id' );
 
 		if ( false === $custom_css_post_id ) {
@@ -412,11 +431,11 @@ class Jetpack_Custom_CSS {
 				return false;
 
 			$post = array();
-			$post['post_content'] = $css;
+			$post['post_content'] = wp_slash( $css );
 			$post['post_title'] = 'safecss';
 			$post['post_status'] = 'publish';
 			$post['post_type'] = 'safecss';
-			$post['post_content_filtered'] = $compressed_css;
+			$post['post_content_filtered'] = wp_slash( $compressed_css );
 
 			// Set excerpt to current theme, for display in revisions list
 			if ( function_exists( 'wp_get_theme' ) ) {
@@ -454,6 +473,8 @@ class Jetpack_Custom_CSS {
 
 		// Do not update post if we are only saving a preview
 		if ( false === $is_preview ) {
+			$safecss_post['post_content'] = wp_slash( $safecss_post['post_content'] );
+			$safecss_post['post_content_filtered'] = wp_slash( $safecss_post['post_content_filtered'] );
 			$post_id = wp_update_post( $safecss_post );
 			wp_cache_set( 'custom_css_post_id', $post_id );
 			return $post_id;
@@ -501,7 +522,7 @@ class Jetpack_Custom_CSS {
 						return (bool) ( $custom_css_add === 'no' );
 				}
 
-				return (bool) ( get_option( 'safecss_add' ) == 'no' );
+				return (bool) ( Jetpack_Options::get_option_and_ensure_autoload( 'safecss_add', '' ) == 'no' );
 			}
 		}
 	}
@@ -601,7 +622,6 @@ class Jetpack_Custom_CSS {
 		else if ( 'safecss_preview' == $option ) {
 			$safecss_post = Jetpack_Custom_CSS::get_current_revision();
 			$css = $safecss_post['post_content'];
-			$css = stripslashes( $css );
 			$css = Jetpack_Custom_CSS::minify( $css, get_post_meta( $safecss_post['ID'], 'custom_css_preprocessor', true ) );
 		}
 
@@ -701,7 +721,7 @@ class Jetpack_Custom_CSS {
 		$option = Jetpack_Custom_CSS::is_preview() ? 'safecss_preview' : 'safecss';
 
 		if ( 'safecss' == $option ) {
-			if ( get_option( 'safecss_revision_migrated' ) ) {
+			if ( Jetpack_Options::get_option_and_ensure_autoload( 'safecss_revision_migrated', '0' ) ) {
 				$safecss_post = Jetpack_Custom_CSS::get_post();
 
 				if ( ! empty( $safecss_post['post_content'] ) ) {
@@ -717,7 +737,7 @@ class Jetpack_Custom_CSS {
 
 			// Fix for un-migrated Custom CSS
 			if ( empty( $safecss_post ) ) {
-				$_css = get_option( 'safecss' );
+				$_css = Jetpack_Options::get_option_and_ensure_autoload( 'safecss', '' );
 				if ( !empty( $_css ) ) {
 					$css = $_css;
 				}
@@ -942,7 +962,7 @@ class Jetpack_Custom_CSS {
 
 		$safecss_post = Jetpack_Custom_CSS::get_post();
 
-		if ( ! empty( $safecss_post ) && 0 < $safecss_post['ID'] && wp_get_post_revisions( $safecss_post['ID'] ) )
+		if ( ! empty( $safecss_post ) && 0 < $safecss_post['ID'] && wp_get_post_revisions( $safecss_post['ID'], array( 'posts_per_page' => 1 ) ) )
 			add_meta_box( 'revisionsdiv', __( 'CSS Revisions', 'jetpack' ), array( __CLASS__, 'revisions_meta_box' ), 'editcss', 'side' );
 		?>
 		<div class="wrap">
@@ -976,8 +996,8 @@ class Jetpack_Custom_CSS {
 						 *
 						 * @param string $str Intro text appearing above the Custom CSS editor.
 						 */
-						echo apply_filters( 'safecss_intro_text', __( 'New to CSS? Start with a <a href="http://www.htmldog.com/guides/cssbeginner/">beginner tutorial</a>. Questions?
-		Ask in the <a href="http://wordpress.org/support/forum/themes-and-templates">Themes and Templates forum</a>.', 'jetpack' ) );
+						echo apply_filters( 'safecss_intro_text', __( 'New to CSS? Start with a <a href="http://www.htmldog.com/guides/cssbeginner/" target="_blank">beginner tutorial</a>. Questions?
+		Ask in the <a href="https://wordpress.org/support/forum/themes-and-templates" target="_blank">Themes and Templates forum</a>.', 'jetpack' ) );
 					?></p>
 					<p class="css-support"><?php echo __( 'Note: Custom CSS will be reset when changing themes.', 'jetpack' ); ?></p>
 
@@ -1025,7 +1045,7 @@ class Jetpack_Custom_CSS {
 					<?php
 
 					printf(
-						__( 'Limit width to %1$s pixels for full size images. (<a href="%2$s">More info</a>.)', 'jetpack' ),
+						__( 'Limit width to %1$s pixels for full size images. (<a href="%2$s" target="_blank">More info</a>.)', 'jetpack' ),
 						'<input type="text" id="custom_content_width_visible" value="' . esc_attr( $custom_content_width ) . '" size="4" />',
 						/**
 						 * Filter the Custom CSS limited width's support doc URL.
@@ -1036,7 +1056,7 @@ class Jetpack_Custom_CSS {
 						 *
 						 * @param string $url Custom CSS limited width's support doc URL.
 						 */
-						apply_filters( 'safecss_limit_width_link', 'http://jetpack.me/support/custom-css/#limited-width' )
+						apply_filters( 'safecss_limit_width_link', 'http://jetpack.com/support/custom-css/#limited-width' )
 					);
 
 					?>
@@ -1465,20 +1485,31 @@ class Jetpack_Custom_CSS {
 		}
 	}
 
-	static function revision_redirect( $redirect ) {
-		global $post;
+	/**
+	 * Adds a filter to the redirect location in `wp-admin/revisions.php`.
+	 */
+	static function add_revision_redirect() {
+		add_filter( 'wp_redirect', array( __CLASS__, 'revision_redirect' ) );
+	}
 
-		if ( 'safecss' == $post->post_type ) {
-			if ( strstr( $redirect, 'action=edit' ) ) {
-				return 'themes.php?page=editcss';
-			}
+	/**
+	 * Filters the redirect location in `wp-admin/revisions.php`.
+	 *
+	 * @param string $location The path to redirect to.
+	 * @return string
+	 */
+	static function revision_redirect( $location ) {
+		$post = get_post();
 
-			if ( 'edit.php' == $redirect ) {
-				return '';
+		if ( ! empty( $post->post_type ) && 'safecss' == $post->post_type ) {
+			$location = 'themes.php?page=editcss';
+
+			if ( 'edit.php' == $location ) {
+				$location = '';
 			}
 		}
 
-		return $redirect;
+		return $location;
 	}
 
 	static function revision_post_link( $post_link, $post_id, $context ) {
@@ -1773,6 +1804,7 @@ function custom_css_restore_revision( $_post_id, $_revision_id ) {
 	return Jetpack_Custom_CSS::restore_revision( $_post_id, $_revision_id );
 }
 
+if ( ! function_exists( 'safecss_class' ) ) :
 function safecss_class() {
 	// Wrapped so we don't need the parent class just to load the plugin
 	if ( class_exists('safecss') )
@@ -1781,9 +1813,6 @@ function safecss_class() {
 	require_once( dirname( __FILE__ ) . '/csstidy/class.csstidy.php' );
 
 	class safecss extends csstidy_optimise {
-		function __construct( &$css ) {
-			return $this->csstidy_optimise( $css );
-		}
 
 		function postparse() {
 
@@ -1818,6 +1847,7 @@ function safecss_class() {
 		}
 	}
 }
+endif;
 
 if ( ! function_exists( 'safecss_filter_attr' ) ) {
 	function safecss_filter_attr( $css, $element = 'div' ) {
@@ -1825,6 +1855,4 @@ if ( ! function_exists( 'safecss_filter_attr' ) ) {
 	}
 }
 
-add_action( 'init', array( 'Jetpack_Custom_CSS', 'init' ) );
-
-include dirname( __FILE__ ) . '/custom-css/preprocessors.php';
+include_once dirname( __FILE__ ) . '/custom-css/preprocessors.php';

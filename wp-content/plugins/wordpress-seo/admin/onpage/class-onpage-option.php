@@ -93,6 +93,17 @@ class WPSEO_OnPage_Option {
 	}
 
 	/**
+	 * Returns the value of the onpage_enabled status
+	 *
+	 * @return bool
+	 */
+	public function is_enabled() {
+		$options = get_option( 'wpseo' );
+
+		return ! empty( $options['onpage_indexability'] );
+	}
+
+	/**
 	 * Getting the option with the OnPage.org data
 	 *
 	 * @return array
@@ -109,7 +120,7 @@ class WPSEO_OnPage_Option {
 	 * @return bool
 	 */
 	public function is_indexable() {
-		_deprecated_function( 'WPSEO_OnPage_Option::is_indexable', 'WPSEO 3.0.2' );
+		_deprecated_function( __METHOD__, 'WPSEO 3.0.2' );
 
 		return self::IS_INDEXABLE === $this->get_status();
 	}
