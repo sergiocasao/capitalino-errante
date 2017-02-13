@@ -1,4 +1,4 @@
-# Translation of Themes - Twenty Fourteen in Spanish (Spain)
+# Translation of Themes - Twenty Fourteen in Spanish (Mexico)
 # This file is distributed under the same license as the Themes - Twenty Fourteen package.
 msgid ""
 msgstr ""
@@ -8,12 +8,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.3.0-alpha\n"
-"Language: es\n"
+"Language: es_MX\n"
 "Project-Id-Version: Themes - Twenty Fourteen\n"
 
 #. Description of the plugin/theme
 msgid "In 2014, our default theme lets you create a responsive magazine website with a sleek, modern design. Feature your favorite homepage content in either a grid or a slider. Use the three widget areas to customize your website, and change your content's layout with a full-width page template and a contributor page to show off your authors. Creating a magazine website with WordPress has never been easier."
-msgstr "En 2014 nuestro tema por defecto permite crear una revista digital adaptable con  un diseño moderno y limpio. Destaca tu contenido favorito en la portada en modo rejilla o carrusel. Usa las tres áreas de widges para personalizar tu web, y cambia la disposición de tu contenido gracias a la plantilla de página de ancho completo, o la de colaborador, que muestra los autores de tu sitio. Crear una revista digital con WordPress nunca ha sido más fácil."
+msgstr "En 2014 nuestro tema por defecto permite crear una revista digital adaptable con un diseño moderno y limpio. Destaca tu contenido favorito en la portada en modo rejilla o carrusel. Usa las tres áreas de widges para personalizar tu web, y cambia la disposición de tu contenido gracias a la plantilla de página de ancho completo, o la de colaborador, que muestra los autores de tu sitio. Crear una revista digital con WordPress nunca ha sido más fácil."
 
 #. Template Name of the plugin/theme
 msgid "Full Width Page"
@@ -60,7 +60,7 @@ msgstr "Sigue leyendo <span class=\"meta-nav\">&rarr;</span>"
 
 #: inc/widgets.php:101
 msgid "More asides"
-msgstr "Más minientradas"
+msgstr "Más apartados"
 
 #: inc/widgets.php:100 taxonomy-post_format.php:30
 msgid "Asides"
@@ -76,7 +76,7 @@ msgstr "Galerías"
 
 #: inc/widgets.php:92
 msgid "More links"
-msgstr "Más enlaces"
+msgstr "Más links"
 
 #: inc/widgets.php:91 taxonomy-post_format.php:45
 msgid "Links"
@@ -84,7 +84,7 @@ msgstr "Enlaces"
 
 #: inc/widgets.php:88
 msgid "More quotes"
-msgstr "Más citas"
+msgstr "Más citas "
 
 #: inc/widgets.php:87 taxonomy-post_format.php:42
 msgid "Quotes"
@@ -100,11 +100,11 @@ msgstr "Audio"
 
 #: inc/widgets.php:80
 msgid "More videos"
-msgstr "Más vídeos"
+msgstr "Más videos"
 
 #: inc/widgets.php:79 taxonomy-post_format.php:36
 msgid "Videos"
-msgstr "Vídeos"
+msgstr "Videos"
 
 #: inc/widgets.php:76
 msgid "More images"
@@ -116,7 +116,7 @@ msgstr "Imágenes"
 
 #: inc/widgets.php:36
 msgid "Use this widget to list your recent Aside, Quote, Video, Audio, Image, Gallery, and Link posts."
-msgstr "Usa este widget para listar minientradas, citas, vídeos, audios, imágenes, galería y enlaces recientes."
+msgstr "Utiliza este widget para enlistar tus Apartados, Citas, Videos, Audios, Imágenes, Galerías y Vínculos más recientes. "
 
 #: inc/widgets.php:34
 msgid "Twenty Fourteen Ephemera"
@@ -156,15 +156,15 @@ msgstr "&larr; Anterior"
 
 #: inc/featured-content.php:431
 msgid "Don&rsquo;t display tag on front end."
-msgstr "No mostrar la etiqueta en la portada."
+msgstr "No mostrar la etiqueta en la parte frontal. "
 
 #: inc/featured-content.php:426
 msgid "Tag Name"
-msgstr "Nombre de la etiqueta"
+msgstr "Nombre de la Etiqueta"
 
 #: inc/customizer.php:147
 msgid "For an in-depth tutorial, and more tips and tricks, visit the <a href=\"%s\">Twenty Fourteen documentation</a>."
-msgstr "Para un tutorial en profundidad y más trucos visita la página de <a href=\"%s\">documentación de Twenty Fourteen</a>."
+msgstr "Para un tutorial más especializado, más consejos y trucos, visita la <a href=\"%s\">documentción de Twenty Fourteen</a>."
 
 #: inc/customizer.php:146
 msgid "Enhance your site design by using <a href=\"%s\">Featured Images</a> for posts you&rsquo;d like to stand out (also known as post thumbnails). This allows you to associate an image with your post without inserting it. Twenty Fourteen uses featured images for posts and pages&mdash;above the title&mdash;and in the Featured Content area on the home page."
@@ -196,11 +196,11 @@ msgstr "Diseño de pantalla"
 #: inc/featured-content.php:414 inc/featured-content.php:474
 msgctxt "featured content default tag slug"
 msgid "featured"
-msgstr "destacado"
+msgstr "destacados"
 
 #: inc/customizer.php:54 inc/featured-content.php:404
 msgid "Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
-msgstr "Usa una <a href=\"%1$s\">etiqueta</a> para destacar tus entradas. Si ninguna entrada se ajusta a la etiqueta entonces se usarán las <a href=\"%2$s\">entradas fijas</a>."
+msgstr "Utiliza una <a href=\"%1$s\">etiqueta</a> para destacar tus publicaciones. Si las publicaciones no concuerdan con la etiqueta, se mostrará el siguiente mensaje <a href=\"%2$s\">sticky posts</a>."
 
 #: inc/customizer.php:53 inc/featured-content.php:403
 msgid "Featured Content"
@@ -216,11 +216,11 @@ msgstr "Puede que sólo sea visible en pantallas anchas."
 
 #: inc/customizer.php:40
 msgid "Display Site Title &amp; Tagline"
-msgstr "Muestra el título y descripción del sitio"
+msgstr "Mostrar el Título del Sitio &amp; Etiquetas"
 
 #: inc/customizer.php:37
 msgid "Site Title Color"
-msgstr "Color del título del sitio"
+msgstr "Color del Título del Sitio"
 
 #: inc/back-compat.php:37 inc/back-compat.php:47 inc/back-compat.php:60
 msgid "Twenty Fourteen requires at least WordPress version 3.6. You are running version %s. Please upgrade and try again."
@@ -236,7 +236,7 @@ msgstr "Imagen anterior"
 
 #: header.php:53
 msgid "Skip to content"
-msgstr "Saltar al contenido"
+msgstr "Ir al contenido"
 
 #: header.php:52
 msgid "Primary Menu"
@@ -273,7 +273,7 @@ msgstr "activada"
 
 #: functions.php:194
 msgid "Appears in the footer section of the site."
-msgstr "Aparece en la sección de pie de página del sitio."
+msgstr "Aparece en el pie de página del sitio. "
 
 #: functions.php:192
 msgid "Footer Widget Area"
@@ -359,7 +359,7 @@ msgstr "1 comentario"
 #: content-image.php:37 content-link.php:37 content-quote.php:37
 #: content-video.php:37 content.php:38 inc/widgets.php:215
 msgid "Leave a comment"
-msgstr "Deja un comentario"
+msgstr "Dejar un comentario"
 
 #: content-aside.php:17 content-audio.php:17 content-featured-post.php:28
 #: content-gallery.php:17 content-image.php:17 content-link.php:17
@@ -370,7 +370,7 @@ msgstr ", "
 
 #: comments.php:59
 msgid "Comments are closed."
-msgstr "Los comentarios están cerrados."
+msgstr "Los Comentarios están cerrados."
 
 #: comments.php:36 comments.php:54
 msgid "Newer Comments &rarr;"
@@ -392,11 +392,11 @@ msgstr[1] "%1$s pensamientos en &ldquo;%2$s&rdquo;"
 
 #: category.php:20
 msgid "Category Archives: %s"
-msgstr "Archivo de la categoría: %s"
+msgstr "Archivos de la categoría %s"
 
 #: author.php:31
 msgid "All posts by %s"
-msgstr "Todas las entradas de:  %s"
+msgstr "Todas las entradas de: %s"
 
 #: archive.php:40 taxonomy-post_format.php:51
 msgid "Archives"
@@ -426,7 +426,7 @@ msgstr "Archivo por días: %s"
 
 #: 404.php:21
 msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr "Parece que no hay nada en este lugar. ¿Y si pruebas una búsqueda?"
+msgstr "Parece que no se encontro nada en esta ubicación. ¿Puedes intentar una nueva búsqueda?"
 
 #: 404.php:17
 msgid "Not Found"
@@ -436,7 +436,7 @@ msgstr "No encontrado"
 #. Author URI of the plugin/theme
 #: footer.php:21
 msgid "https://wordpress.org/"
-msgstr "https://es.wordpress.org/"
+msgstr "https://wordpress.org"
 
 #. Author of the plugin/theme
 msgid "the WordPress team"
