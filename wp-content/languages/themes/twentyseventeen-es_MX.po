@@ -1,40 +1,32 @@
-# Translation of Themes - Twenty Seventeen in Spanish (Spain)
+# Translation of Themes - Twenty Seventeen in Spanish (Mexico)
 # This file is distributed under the same license as the Themes - Twenty Seventeen package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-02-06 09:30:12+0000\n"
+"PO-Revision-Date: 2016-12-05 20:57:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.3.0-alpha\n"
-"Language: es\n"
+"Language: es_MX\n"
 "Project-Id-Version: Themes - Twenty Seventeen\n"
-
-#. Description of the plugin/theme
-msgid "Twenty Seventeen brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device."
-msgstr "Twenty Seventeen da vida a tu sitio con vídeos en la cabecera e imágenes destacadas envolventes. Enfocado a sitios de negocios, muestra muchas secciones en la página de inicio además de widgets, menús sociales y de navegación, un logo, ... y muchas cosas más. Personaliza su cuadrícula asimétrica con paletas de color personalizadas y muestra tu contenido multimedia con formatos de entrada. Nuestro tema por defecto para 2017 va muy bien para muchos idiomas, funciones y en cualquier dispositivo. "
-
-#. Theme Name of the plugin/theme
-msgid "Twenty Seventeen"
-msgstr "Twenty Seventeen"
 
 #: template-parts/header/site-branding.php:31
 #: template-parts/navigation/navigation-top.php:20
 msgid "Scroll down to content"
 msgstr "Desplazarse al contenido"
 
-#: functions.php:159
+#: functions.php:150
 msgctxt "Theme starter content"
 msgid "Coffee"
 msgstr "Café"
 
-#: functions.php:155
+#: functions.php:146
 msgctxt "Theme starter content"
 msgid "Sandwich"
 msgstr "Sandwich"
 
-#: functions.php:151
+#: functions.php:142
 msgctxt "Theme starter content"
 msgid "Espresso"
 msgstr "Expreso"
@@ -54,6 +46,14 @@ msgstr "Placeholder de la sección %1$s de la página principal"
 #: inc/customizer.php:80
 msgid "When the two column layout is assigned, the page title is in one column and content is in the other."
 msgstr "Cuando se elige el diseño de dos columnas, el título de la página está en una columna y el contenido está en la otra."
+
+#. Description of the plugin/theme
+msgid "Twenty Seventeen brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device."
+msgstr "Twenty Seventeen da vida a tu sitio con imágenes destacadas envolventes y animaciones delicadas. Enfocado a sitios de negocios, destaca muchas secciones en la página de inicio además de widgets, menús sociales y de navegación, un logo, y mucho más. Personaliza su cuadrícula asimétrica con paletas de color personalizadas y muestra tu contenido multimedia con formatos de entrada. Nuestro tema por defecto para 2017 va muy bien para muchos idiomas, funciones y en cualquier dispositivo. "
+
+#. Theme Name of the plugin/theme
+msgid "Twenty Seventeen"
+msgstr "Twenty Seventeen"
 
 #: single.php:32
 msgid "Next Post"
@@ -101,15 +101,15 @@ msgstr "Elige las páginas a incluir en cada área en los desplegables. Añade u
 #. translators: %d is the front page section number
 #: inc/customizer.php:107
 msgid "Front Page Section %d Content"
-msgstr "Contenido de la sección %d de la página principal "
+msgstr "Contenido de la sección %d de la página principal"
 
 #: inc/customizer.php:83 inc/customizer.php:130
 msgid "Two Column"
-msgstr "Dos columnas"
+msgstr "Columna dos"
 
 #: inc/customizer.php:82 inc/customizer.php:129
 msgid "One Column"
-msgstr "Una columna"
+msgstr "Columna uno"
 
 #: inc/customizer.php:77
 msgid "Page Layout"
@@ -135,24 +135,24 @@ msgstr "Paleta de colores"
 msgid "Default Header Image"
 msgstr "Imagen de cabecera por defecto"
 
-#: functions.php:335
+#: functions.php:296
 msgid "Footer 2"
-msgstr "Pie de página 2"
+msgstr "Pie 2"
 
-#: functions.php:327 functions.php:337
+#: functions.php:288 functions.php:298
 msgid "Add widgets here to appear in your footer."
-msgstr "Añade aquí los widgets que quieres que aparezcan en tu pie de página."
+msgstr "Añade aquí los widgets que quieres que aparezcan en el pie."
 
-#: functions.php:325
+#: functions.php:286
 msgid "Footer 1"
-msgstr "Pie de página 1"
+msgstr "Pie 2"
 
-#: functions.php:269
+#: functions.php:230
 msgctxt "Libre Franklin font: on or off"
 msgid "on"
 msgstr "on"
 
-#: functions.php:63 functions.php:183
+#: functions.php:60 functions.php:170
 #: template-parts/navigation/navigation-top.php:12
 msgid "Top Menu"
 msgstr "Menú superior"
@@ -160,6 +160,14 @@ msgstr "Menú superior"
 #: comments.php:60
 msgid "Reply"
 msgstr "Responder"
+
+#. Author of the plugin/theme
+msgid "the WordPress team"
+msgstr "el equipo WordPress"
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress.org/themes/twentyseventeen/"
+msgstr "https://wordpress.org/themes/twentyseventeen/"
 
 #: template-parts/post/content-none.php:27
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
@@ -171,7 +179,7 @@ msgstr "Lo sentimos, pero no encaja nada con los términos de la búsqueda. Int�
 
 #: template-parts/post/content-none.php:23
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "¿Listo para publicar tu primera entrada? <a href=\"%1$s\">Empieza aquí</a>."
+msgstr "¿Preparado para publicar tu primera entrada? <a href=\"%1$s\">Empieza aquí</a>"
 
 #: search.php:21 template-parts/post/content-none.php:17
 msgid "Nothing Found"
@@ -209,7 +217,7 @@ msgid "Search Results for: %s"
 msgstr "Resultados de búsqueda por: %s"
 
 #. translators: %s: Name of current post
-#: functions.php:362 template-parts/page/content-front-page-panels.php:43
+#: functions.php:323 template-parts/page/content-front-page-panels.php:43
 #: template-parts/page/content-front-page.php:44
 #: template-parts/post/content-audio.php:80
 #: template-parts/post/content-gallery.php:66
@@ -224,7 +232,7 @@ msgstr "Oscuro"
 
 #: inc/back-compat.php:39 inc/back-compat.php:51 inc/back-compat.php:66
 msgid "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
-msgstr "Twenty Seventeen requiere al menos la versión 4.7 de WordPress. Estás usando la versión %s. Por favor, actualiza e inténtalo de nuevo."
+msgstr "Twenty Seventeen requiere al menos la versión de Wordpress 4.7. La versión actual es %s. Por favor actualice e intente de nuevo."
 
 #. translators: %s: Name of current post
 #: inc/template-tags.php:117
@@ -247,23 +255,23 @@ msgstr "Menú"
 msgid "Skip to content"
 msgstr "Ir al contenido"
 
-#: functions.php:445
+#: functions.php:406
 msgid "Collapse child menu"
 msgstr "Plegar menú inferior"
 
-#: functions.php:444
+#: functions.php:405
 msgid "Expand child menu"
 msgstr "Expande el menú inferior"
 
-#: functions.php:317
+#: functions.php:278
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Añade aquí los widgets para que aparezca en la barra lateral."
 
-#: functions.php:315
+#: functions.php:276
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: functions.php:64 functions.php:194
+#: functions.php:61 functions.php:179
 msgid "Social Links Menu"
 msgstr "Menú de enlaces sociales"
 
@@ -271,7 +279,7 @@ msgstr "Menú de enlaces sociales"
 msgid "Proudly powered by %s"
 msgstr "Creado con %s"
 
-#. #-#-#-#-#  twentyseventeen.pot (Twenty Seventeen 1.1)  #-#-#-#-#
+#. #-#-#-#-#  twentyseventeen.pot (Twenty Seventeen 1.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: template-parts/footer/site-info.php:13
 msgid "https://wordpress.org/"
@@ -279,7 +287,7 @@ msgstr "https://wordpress.org/"
 
 #: footer.php:25
 msgid "Footer Social Links Menu"
-msgstr "Menú de enlaces sociales del pié de página"
+msgstr "Pie de Página Menú de Enlaces Sociales"
 
 #: comments.php:75
 msgid "Comments are closed."
@@ -290,8 +298,8 @@ msgstr "Comentarios cerrados."
 msgctxt "comments title"
 msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s opinión en &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s opiniones en &ldquo;%2$s&rdquo;"
+msgstr[0] " %1$s comentario en &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s comentarios en &ldquo;%2$s&rdquo;"
 
 #. translators: %s: post title
 #: comments.php:36
@@ -305,7 +313,7 @@ msgstr "Página"
 
 #: 404.php:21
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "¡Vaya! Está página no se encuentra."
+msgstr "¡Vaya! No se pudo encontrar esa página."
 
 #: 404.php:24
 msgid "It looks like nothing was found at this location. Maybe try a search?"
@@ -318,11 +326,3 @@ msgstr "Página anterior"
 #: archive.php:46 index.php:51 search.php:44
 msgid "Next page"
 msgstr "Próxima página"
-
-#. Author of the plugin/theme
-msgid "the WordPress team"
-msgstr "El equipo WordPress"
-
-#. Theme URI of the plugin/theme
-msgid "https://wordpress.org/themes/twentyseventeen/"
-msgstr "https://es.wordpress.org/themes/twentyseventeen/"
