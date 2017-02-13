@@ -23,17 +23,7 @@
 				<meta property="og:image" content="<?php echo esc_attr($thumbnail[0])?>" />
 			<?php endif; ?>
 		<?php endif; ?>
-
-		<link href="https://http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-		<link href="http://fonts.googleapis.com/css?family=Oswald:400,600,700,800,300" rel="stylesheet">
-
 		<?php wp_head(); ?>
-		<style media="screen">
-		* {
-			font-size: 100% !important;
-			font-family: "Open Sans" !important;
-		}
-		</style>
 	</head>
 
 	<body <?php body_class();?> itemscope="itemscope" itemtype="http://schema.org/WebPage">

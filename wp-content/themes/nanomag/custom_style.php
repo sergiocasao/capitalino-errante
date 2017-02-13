@@ -8,7 +8,7 @@ require_once( '../../../wp-load.php' );
     $font = explode(',', $font['face']);
     $font = $font[0];
     $font = str_replace(" ", "+", $font);
- 	echo esc_attr('@import url(http://fonts.googleapis.com/css?family='.$font.':300,400,600,700,800);');
+ 	echo esc_attr('@import url(https://fonts.googleapis.com/css?family='.$font.':300,400,600,700,800);');
     }
     $menu_title_google_font = of_get_option('menu_title_google_font');
     if($menu_title_google_font == '' || $menu_title_google_font == 'arial' || $menu_title_google_font == 'verdana' || $menu_title_google_font == 'trebuchet' || $menu_title_google_font == 'georgia' || $menu_title_google_font == 'times' || $menu_title_google_font == 'tahoma' || $menu_title_google_font == 'helvetica') {
@@ -17,7 +17,7 @@ require_once( '../../../wp-load.php' );
     $font = explode(',', $font['face']);
     $font = $font[0];
     $font = str_replace(" ", "+", $font);
- 	echo esc_attr('@import url(http://fonts.googleapis.com/css?family='.$font.':400,600,700,800,300);');
+ 	echo esc_attr('@import url(https://fonts.googleapis.com/css?family='.$font.':400,600,700,800,300);');
     }
     $heading_title_google_font = of_get_option('heading_title_google_font');
     if($heading_title_google_font == '' || $heading_title_google_font == 'arial' || $heading_title_google_font == 'verdana' || $heading_title_google_font == 'trebuchet' || $heading_title_google_font == 'georgia' || $heading_title_google_font == 'times' || $heading_title_google_font == 'tahoma' || $heading_title_google_font == 'helvetica') {
@@ -26,7 +26,7 @@ require_once( '../../../wp-load.php' );
     $font = explode(',', $font['face']);
     $font = $font[0];
     $font = str_replace(" ", "+", $font);
-    echo esc_attr('@import url(http://fonts.googleapis.com/css?family='.$font.':400,600,700,800,300);');
+    echo esc_attr('@import url(https://fonts.googleapis.com/css?family='.$font.':400,600,700,800,300);');
     }
     $title_google_font = of_get_option('title_google_font');
     if($title_google_font == '' || $title_google_font == 'arial' || $title_google_font == 'verdana' || $title_google_font == 'trebuchet' || $title_google_font == 'georgia' || $title_google_font == 'times' || $title_google_font == 'tahoma' || $title_google_font == 'helvetica') {
@@ -35,9 +35,9 @@ require_once( '../../../wp-load.php' );
     $font = explode(',', $font['face']);
     $font = $font[0];
     $font = str_replace(" ", "+", $font);
-    echo esc_attr('@import url(http://fonts.googleapis.com/css?family='.$font.':400,600,700,800,300);');
+    echo esc_attr('@import url(https://fonts.googleapis.com/css?family='.$font.':400,600,700,800,300);');
     }
-echo esc_attr('@import url(http://fonts.googleapis.com/css?family=Oswald:400,600,700,800,300);');
+echo esc_attr('@import url(https://fonts.googleapis.com/css?family=Oswald:400,600,700,800,300);');
 $color = of_get_option('theme_color');
 $hex = $color;
 list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
@@ -73,13 +73,13 @@ footer table thead,
 .meta-category-small a, .email_subscribe_box .buttons{background-color: <?php echo esc_attr($color);?>; }
 .main-post-image-slider .item_slide_caption h1 a, .shortcode_slider h1, .main-post-image-slider .item_slide_caption h1 a, .builder_slider .item_slide_caption h1 a, .full-width-slider .item_slide_caption h1 a{box-shadow: 5px 0 0 <?php echo esc_attr("rgba($r, $g, $b, 0.8)");?>,-5px 0 0 <?php echo esc_attr("rgba($r, $g, $b, 0.8)");?>;background-color: <?php echo esc_attr($color);?>; background-color: <?php echo esc_attr("rgba($r, $g, $b, 0.8)");?>;}
 #prepost:hover, #nextpost:hover, #prepost:hover, .btn.default:hover, .footer_carousel:hover .read_more_footer, .tickerfloat i, .btn.default.read_more{color: <?php echo esc_attr($color);?> !important;}
-.btn.default:hover, .btn.default.read_more{border:1px solid <?php echo esc_attr($color);?>; background: none !important;}	
+.btn.default:hover, .btn.default.read_more{border:1px solid <?php echo esc_attr($color);?>; background: none !important;}
 ul.tabs, ul.tabs1, ul.hover_tab_post_large, h3.widget-title span{border-top: 2px solid <?php echo esc_attr($color);?>;}
-.woocommerce ul.products li.product .star-rating span, .woocommerce ul.products li.product .star-rating span{color: <?php echo esc_attr($color);?>;}	
+.woocommerce ul.products li.product .star-rating span, .woocommerce ul.products li.product .star-rating span{color: <?php echo esc_attr($color);?>;}
 .woocommerce.widget .ui-slider .ui-slider-handle, .woocommerce .product .onsale{background: none <?php echo esc_attr($color);?>;}
 .woocommerce #content nav.woocommerce-pagination ul li a:focus, .woocommerce #content nav.woocommerce-pagination ul li a:hover, .woocommerce #content nav.woocommerce-pagination ul li span.current, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce-page #content nav.woocommerce-pagination ul li a:focus, .woocommerce-page #content nav.woocommerce-pagination ul li a:hover, .woocommerce-page #content nav.woocommerce-pagination ul li span.current, .woocommerce-page nav.woocommerce-pagination ul li a:focus, .woocommerce-page nav.woocommerce-pagination ul li a:hover, .woocommerce-page nav.woocommerce-pagination ul li span.current, .woocommerce #content nav.woocommerce-pagination ul li a, .woocommerce #content nav.woocommerce-pagination ul li span, .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span, .woocommerce-page #content nav.woocommerce-pagination ul li a, .woocommerce-page #content nav.woocommerce-pagination ul li span, .woocommerce-page nav.woocommerce-pagination ul li a, .woocommerce-page nav.woocommerce-pagination ul li span,
 .woocommerce .widget_price_filter .price_slider_amount .button:hover, .woocommerce-page .widget_price_filter .price_slider_amount .button:hover,
-.woocommerce #content input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce-page #content input.button:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover, 
+.woocommerce #content input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce-page #content input.button:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover,
 .woocommerce #content div.product form.cart .button:hover, .woocommerce div.product form.cart .button:hover, .woocommerce-page #content div.product form.cart .button:hover, .woocommerce-page div.product form.cart .button:hover,
 .woocommerce #content input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover,
 #searchsubmit:hover, .woocommerce-product-search input[type="submit"]:hover, .bbp-login-form .bbp-submit-wrapper .button:hover, #bbp_search_submit:hover, #bbp_topic_submit:hover, .bbp-submit-wrapper .button:hover
@@ -91,7 +91,7 @@ ul.tabs, ul.tabs1, ul.hover_tab_post_large, h3.widget-title span{border-top: 2px
 }
 .woocommerce a.added_to_cart, .woocommerce-page a.added_to_cart{ color: <?php echo esc_attr($color);?>;}
 
-.widget-title, h3.widget-title{border-bottom: 2px solid <?php echo esc_attr($color);?>;}	
+.widget-title, h3.widget-title{border-bottom: 2px solid <?php echo esc_attr($color);?>;}
 .widget-title h2, h3.widget-title span, .carousel_post_home_wrapper .medium-two-columns:hover .image-post-title{background: <?php echo esc_attr($color);?>; color: #fff;}
 
 .post_link_type .overlay_icon.fa{ color: <?php echo esc_attr($color);?>; border:2px solid <?php echo esc_attr($color);?>;}
@@ -108,13 +108,13 @@ ul.tabs, ul.tabs1, ul.hover_tab_post_large, h3.widget-title span{border-top: 2px
 .post_content a:hover, .page.type-page a:hover{ color: <?php echo esc_attr(of_get_option('theme_link_hover_color'));?>;}
 <?php }?>
 
-<?php 
+<?php
 if(of_get_option('full_or_boxed_layout')!= 'full_image_option'){
 if(of_get_option('background_body_option')!= 'big_image'){
 if(of_get_option('background_body_option')== 'pattern'){
-echo esc_attr("body{background:url(img/pattern/pattern_use/".of_get_option('background_parttern').".png);}"); 
+echo esc_attr("body{background:url(img/pattern/pattern_use/".of_get_option('background_parttern').".png);}");
 }elseif(of_get_option('background_body_option')== 'color'){
-echo esc_attr("body{background:".of_get_option('background_color').";}"); 
+echo esc_attr("body{background:".of_get_option('background_color').";}");
 }}}?>
 
 <?php if(of_get_option('builder_color_1')){?>.widget.color-1 .widget-title, .widget .color-1 .widget-title{border-bottom-color: <?php echo esc_attr(of_get_option('builder_color_1'));?> !important;} .widget.color-1 h2, .feature-two-column.color-1 .widget-title h2{background: <?php echo esc_attr(of_get_option('builder_color_1'));?> url(img/border_title.png) no-repeat right !important;}<?php }?>
@@ -158,20 +158,20 @@ echo esc_attr("body{background:".of_get_option('background_color').";}");
 <?php if(of_get_option('border_color_10')){?>#mainmenu li.color-10.current-menu-ancestor > a, #mainmenu li.current_page_item.color-10 > a, #mainmenu li.current-menu-item.color-10 > a, #menu a.current, #mainmenu > li.color-10:hover, #mainmenu li.sfHover.color-10{background-color: <?php echo esc_attr(of_get_option('border_color_10'));?> !important;}<?php }?>
 
 .theme_header_style_3 #mainmenu>li.current-menu-item>a, .theme_header_style_3 #mainmenu>li>a, .theme_header_style_3 #mainmenu>li.current-menu-ancestor>a, .theme_header_style_5 #mainmenu>li.current-menu-item>a, .theme_header_style_5 #mainmenu>li>a, .theme_header_style_5 #mainmenu>li.current-menu-ancestor>a{ background-color: #FFF !important; background: #fff !important; color: #222 !important;}
-        
+
 <?php if ($menu_title_google_font['face'] != 'none') {?>
-.sf-top-menu li a, #mainmenu li > a{font-family:<?php echo esc_attr($menu_title_google_font['face']);?> !important;}  
+.sf-top-menu li a, #mainmenu li > a{font-family:<?php echo esc_attr($menu_title_google_font['face']);?> !important;}
 <?php }?>
 
 <?php if ($heading_title_google_font['face'] != 'none') {?>
-.tickerfloat, .widget-title h2, .email_subscribe_box h2, .widget-title h2, h3.widget-title span{font-family:<?php echo esc_attr($heading_title_google_font['face']);?> !important;}  
+.tickerfloat, .widget-title h2, .email_subscribe_box h2, .widget-title h2, h3.widget-title span{font-family:<?php echo esc_attr($heading_title_google_font['face']);?> !important;}
 <?php }?>
 
 <?php if ($title_google_font['face'] != 'none') {?>
-.detailholder.medium h3, #ticker a.ticker_title, .grid.caption_header h3, ul.tabs1 li a, ul.hover_tab_post_large li a, h1, h2, h3, h4, h5, h6, .carousel_title, .postnav a, .pagination-more-grid div a, .pagination-more div a, ul.tabs li a, #pageslide a, .bbp-forum-title{font-family:<?php echo esc_attr($title_google_font['face']);?> !important;}   
-<?php }?> 
+.detailholder.medium h3, #ticker a.ticker_title, .grid.caption_header h3, ul.tabs1 li a, ul.hover_tab_post_large li a, h1, h2, h3, h4, h5, h6, .carousel_title, .postnav a, .pagination-more-grid div a, .pagination-more div a, ul.tabs li a, #pageslide a, .bbp-forum-title{font-family:<?php echo esc_attr($title_google_font['face']);?> !important;}
+<?php }?>
 <?php if ($body_font['face'] != 'none') {?>
-body, p, #search_block_top #search_query_top, .tagcloud a, .btn.default.read_more, .widget_meta li, .widget_archive li a, .widget_rss li a, .widget_recent_entries li a, .widget_recent_comments li a, .widget_pages li a, .widget_categories li a, .meta-list-small .post-date{font-family:<?php echo esc_attr($body_font['face']);?> !important; font-size:<?php echo esc_attr($body_font['size']);?>  !important; font-weight: 600 !important;}   
+body, p, #search_block_top #search_query_top, .tagcloud a, .btn.default.read_more, .widget_meta li, .widget_archive li a, .widget_rss li a, .widget_recent_entries li a, .widget_recent_comments li a, .widget_pages li a, .widget_categories li a, .meta-list-small .post-date{font-family:<?php echo esc_attr($body_font['face']);?> !important; font-size:<?php echo esc_attr($body_font['size']);?>  !important; font-weight: 600 !important;}
 .love_this_post_meta a{font-family:<?php echo esc_attr($body_font['face']);?> !important;}
 <?php }?>
 
@@ -183,7 +183,7 @@ body, p, #search_block_top #search_query_top, .tagcloud a, .btn.default.read_mor
 transform: none;
 }
 
-<?php }?> 
+<?php }?>
 
 <?php echo esc_attr(of_get_option('custom_style'));
 if (!empty($color)) {
