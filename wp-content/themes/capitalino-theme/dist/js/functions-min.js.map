@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../js/functions.js"],"names":["$","document","ready","console","log","jQuery"],"mappings":"cAAA,SAAUA,GACTA,EAAEC,UAAUC,MAAM,WAEjBC,QAAQC,IAAI,mBAGXC","file":"functions-min.js","sourcesContent":["(function($) {\n\t$(document).ready(function(){\n\n\t\tconsole.log('Hello world!');\n\n\t});\n})(jQuery);\n"]}

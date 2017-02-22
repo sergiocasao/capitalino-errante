@@ -3,8 +3,8 @@
  *                                       Constantes y variables Globales
  *  ==============================================================================================================
  */
-define( 'JSPATH', get_template_directory_uri() . '/js/' );
-define( 'CSSPATH', get_template_directory_uri() . '/css/' ); // css para el adimin
+define( 'JSPATH', get_template_directory_uri() . '/dist/js/' );
+define( 'CSSPATH', get_template_directory_uri() . '/dist/css/' ); // css para el adimin
 define( 'BLOGURL', get_home_url('/') );
 define( 'THEMEURL', get_bloginfo('template_url').'/' );
 

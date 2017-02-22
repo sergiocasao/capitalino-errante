@@ -1,9 +1,9 @@
 /*
-Theme Name: - Theme name -
-Author: El Cultivo
-Author URI: http://elcultivo.mx
-Description: Configuración básica para cualquier tema desarrollado por El Cultivo
-Version: Cltvo Blank Theme 2.0 beta
+Theme Name: Capitalino Errante Theme
+Author: Sergio
+Author URI: http://sergiocasao.mx
+Description: Capitalino Errante theme
+Version: 0.1
 */
 
-@import url('css/mazorca.css');
+@import url('dist/css/mazorca.css');

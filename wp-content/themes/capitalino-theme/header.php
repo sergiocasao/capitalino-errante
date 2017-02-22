@@ -2,17 +2,19 @@
 <html lang="<?php echo substr(get_bloginfo ( 'language' ), 0, 2);?>">
 <head>
 	<meta charset="UTF-8">
-	<title><?php
-		global $page, $paged;
+	<title>
+		<?php
+			global $page, $paged;
 
-		wp_title( '|', true, 'right' );
-		bloginfo( 'name' );
+			wp_title( '|', true, 'right' );
+			bloginfo( 'name' );
 
-		$site_description = get_bloginfo( 'description', 'display' );
+			$site_description = get_bloginfo( 'description', 'display' );
 
-		if ( $site_description && ( is_home() || is_front_page() ) ) echo " | $site_description";
-		if ( $paged >= 2 || $page >= 2 ) echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
-	?></title>
+			if ( $site_description && ( is_home() || is_front_page() ) ) echo " | $site_description";
+			if ( $paged >= 2 || $page >= 2 ) echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
+		?>
+	</title>
 
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -36,22 +38,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
 	<link href="<?php bloginfo('template_url'); ?>/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<?php wp_head(); ?>
 </head>
 <body>
-	<?php
 
-	/**
-	 *CLTVO: poner esto en true sólo en la versiones locales.
-	 */
+	<?php if( !defined('WP_DEBUG') || ( WP_DEBUG != true) ){ include_once('inc/analytics.php'); } ?>
 
-	if( !defined('CLTVO_ISLOCAL') || ( CLTVO_ISLOCAL != true) ){ include_once('inc/analytics.php'); }
-
-	?>
-
-	<!--[if gt IE 8]><div style="z-index: 1000; padding: 5px 0; text-align: center; position: absolute; top: 0; left: 0; width: 100%; background-color: #312822;"><p style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: white;">Consider <a style="color: #EA7640;
-	text-decoration: underline;" href="http://www.google.com/intl/es/chrome/browser/" target="_blank">updating your browser</a> in order to render this site correctly.</p></div><!-->
-<!--<![endif]-->
+	<!--[if gt IE 8]>
+	<div style="z-index: 1000; padding: 5px 0; text-align: center; position: absolute; top: 0; left: 0; width: 100%; background-color: #312822;">
+		<p style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: white;">
+		Consider <a style="color: #EA7640;text-decoration: underline;" href="http://www.google.com/intl/es/chrome/browser/" target="_blank">updating your browser</a> in order to render this site correctly.
+	</p></div><!-->
+	<!--<![endif]-->
 
 	<!-- Aquí podría abrir el main-wrap -->

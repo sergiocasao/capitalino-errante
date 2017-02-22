@@ -10,14 +10,14 @@ add_action('init', function(){
  */
 
  $special_pages = array(
-     'clientes' => array(
-             'Clientes', // nombre de la pagina
-             "" // slug de de la pagina padre siempre se debe registar la pagina padre
-         ) ,
-     'contacto' => array(
-             'Contacto',  // nombre de la pagina
-             ""  // slug de de la pagina padre siempre se debe registar la pagina padre
-         )
+    //  'clientes' => array(
+    //          'Clientes', // nombre de la pagina
+    //          "" // slug de de la pagina padre siempre se debe registar la pagina padre
+    //      ) ,
+    //  'contacto' => array(
+    //          'Contacto',  // nombre de la pagina
+    //          ""  // slug de de la pagina padre siempre se debe registar la pagina padre
+    //      )
  );
 
  $special_pages_ids = get_option('special_pages_ids'); // almacena los ids de las paginas especiales
