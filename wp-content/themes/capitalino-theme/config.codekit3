@@ -15,191 +15,285 @@
 		"oAP": "\/.gitignore",
 		"oF": 0
 		},
+	"\/404.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/404.php",
+		"oF": 0
+		},
 	"\/ajax\/CltvoAjaxMail.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/ajax\/CltvoAjaxMail.php",
 		"oF": 0
 		},
-	"\/dist\/css\/mazorca.css": {
+	"\/assets\/css\/mazorca.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/dist\/css\/mazorca-min.css",
+		"oAP": "\/assets\/css\/mazorca-min.css",
 		"oF": 0,
 		"oS": 0
 		},
-	"\/dist\/css\/mazorca.css.map": {
+	"\/assets\/css\/mazorca.css.map": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/dist\/css\/mazorca.css.map",
+		"oAP": "\/assets\/css\/mazorca.css.map",
 		"oF": 0
 		},
-	"\/dist\/images\/favicon\/apple-touch-icon-114x114.png": {
-		"ft": 32768,
-		"iS": 9466,
+	"\/assets\/css\/swiper.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/apple-touch-icon-114x114.png",
+		"oAP": "\/assets\/css\/swiper.min-min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/assets\/images\/favicon\/apple-touch-icon-114x114.png": {
+		"ft": 32768,
+		"iS": 11137,
+		"oA": 0,
+		"oAP": "\/assets\/images\/favicon\/apple-touch-icon-114x114.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/apple-touch-icon-120x120.png": {
+	"\/assets\/images\/favicon\/apple-touch-icon-120x120.png": {
 		"ft": 32768,
-		"iS": 6321,
+		"iS": 9804,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/apple-touch-icon-120x120.png",
+		"oAP": "\/assets\/images\/favicon\/apple-touch-icon-120x120.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/apple-touch-icon-144x144.png": {
+	"\/assets\/images\/favicon\/apple-touch-icon-144x144.png": {
 		"ft": 32768,
-		"iS": 14252,
+		"iS": 0,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/apple-touch-icon-144x144.png",
+		"oAP": "\/assets\/images\/favicon\/apple-touch-icon-144x144.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/apple-touch-icon-152x152.png": {
+	"\/assets\/images\/favicon\/apple-touch-icon-152x152.png": {
 		"ft": 32768,
-		"iS": 14614,
+		"iS": 0,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/apple-touch-icon-152x152.png",
+		"oAP": "\/assets\/images\/favicon\/apple-touch-icon-152x152.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/apple-touch-icon-57x57.png": {
+	"\/assets\/images\/favicon\/apple-touch-icon-57x57.png": {
 		"ft": 32768,
-		"iS": 2570,
+		"iS": 3763,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/apple-touch-icon-57x57.png",
+		"oAP": "\/assets\/images\/favicon\/apple-touch-icon-57x57.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/apple-touch-icon-60x60.png": {
+	"\/assets\/images\/favicon\/apple-touch-icon-60x60.png": {
 		"ft": 32768,
-		"iS": 2157,
+		"iS": 3780,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/apple-touch-icon-60x60.png",
+		"oAP": "\/assets\/images\/favicon\/apple-touch-icon-60x60.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/apple-touch-icon-72x72.png": {
+	"\/assets\/images\/favicon\/apple-touch-icon-72x72.png": {
 		"ft": 32768,
-		"iS": 4099,
+		"iS": 5189,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/apple-touch-icon-72x72.png",
+		"oAP": "\/assets\/images\/favicon\/apple-touch-icon-72x72.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/apple-touch-icon-76x76.png": {
+	"\/assets\/images\/favicon\/apple-touch-icon-76x76.png": {
 		"ft": 32768,
-		"iS": 4406,
+		"iS": 5856,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/apple-touch-icon-76x76.png",
+		"oAP": "\/assets\/images\/favicon\/apple-touch-icon-76x76.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/favicon-128.png": {
-		"ft": 32768,
-		"iS": 2638,
-		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/favicon-128.png",
-		"oF": 0,
-		"opt": 0
-		},
-	"\/dist\/images\/favicon\/favicon-16x16.png": {
-		"ft": 32768,
-		"iS": 334,
-		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/favicon-16x16.png",
-		"oF": 0,
-		"opt": 0
-		},
-	"\/dist\/images\/favicon\/favicon-196x196.png": {
-		"ft": 32768,
-		"iS": 25156,
-		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/favicon-196x196.png",
-		"oF": 0,
-		"opt": 0
-		},
-	"\/dist\/images\/favicon\/favicon-32x32.png": {
-		"ft": 32768,
-		"iS": 634,
-		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/favicon-32x32.png",
-		"oF": 0,
-		"opt": 0
-		},
-	"\/dist\/images\/favicon\/favicon-96x96.png": {
-		"ft": 32768,
-		"iS": 6279,
-		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/favicon-96x96.png",
-		"oF": 0,
-		"opt": 0
-		},
-	"\/dist\/images\/favicon\/favicon.ico": {
+	"\/assets\/images\/favicon\/code.txt": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/dist\/images\/favicon\/favicon.ico",
+		"oAP": "\/assets\/images\/favicon\/code.txt",
 		"oF": 0
 		},
-	"\/dist\/images\/favicon\/mstile-144x144.png": {
+	"\/assets\/images\/favicon\/favicon-128.png": {
 		"ft": 32768,
-		"iS": 14252,
+		"iS": 0,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/mstile-144x144.png",
+		"oAP": "\/assets\/images\/favicon\/favicon-128.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/mstile-150x150.png": {
+	"\/assets\/images\/favicon\/favicon-16x16.png": {
 		"ft": 32768,
-		"iS": 28169,
+		"iS": 0,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/mstile-150x150.png",
+		"oAP": "\/assets\/images\/favicon\/favicon-16x16.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/mstile-310x150.png": {
+	"\/assets\/images\/favicon\/favicon-196x196.png": {
 		"ft": 32768,
-		"iS": 24297,
+		"iS": 0,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/mstile-310x150.png",
+		"oAP": "\/assets\/images\/favicon\/favicon-196x196.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/mstile-310x310.png": {
+	"\/assets\/images\/favicon\/favicon-32x32.png": {
 		"ft": 32768,
-		"iS": 33938,
+		"iS": 0,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/mstile-310x310.png",
+		"oAP": "\/assets\/images\/favicon\/favicon-32x32.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/images\/favicon\/mstile-70x70.png": {
+	"\/assets\/images\/favicon\/favicon-96x96.png": {
 		"ft": 32768,
-		"iS": 2638,
+		"iS": 0,
 		"oA": 0,
-		"oAP": "\/dist\/images\/favicon\/mstile-70x70.png",
+		"oAP": "\/assets\/images\/favicon\/favicon-96x96.png",
 		"oF": 0,
 		"opt": 0
 		},
-	"\/dist\/js\/functions-min.js": {
+	"\/assets\/images\/favicon\/favicon.ico": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/assets\/images\/favicon\/favicon.ico",
+		"oF": 0
+		},
+	"\/assets\/images\/favicon\/mstile-144x144.png": {
+		"ft": 32768,
+		"iS": 0,
+		"oA": 0,
+		"oAP": "\/assets\/images\/favicon\/mstile-144x144.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/images\/favicon\/mstile-150x150.png": {
+		"ft": 32768,
+		"iS": 0,
+		"oA": 0,
+		"oAP": "\/assets\/images\/favicon\/mstile-150x150.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/images\/favicon\/mstile-310x150.png": {
+		"ft": 32768,
+		"iS": 0,
+		"oA": 0,
+		"oAP": "\/assets\/images\/favicon\/mstile-310x150.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/images\/favicon\/mstile-310x310.png": {
+		"ft": 32768,
+		"iS": 0,
+		"oA": 0,
+		"oAP": "\/assets\/images\/favicon\/mstile-310x310.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/images\/favicon\/mstile-70x70.png": {
+		"ft": 32768,
+		"iS": 0,
+		"oA": 0,
+		"oAP": "\/assets\/images\/favicon\/mstile-70x70.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/js\/admin-functions.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/dist\/dist\/js\/functions-min-min.js",
+		"oAP": "\/assets\/js\/admin-functions-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 1
 		},
-	"\/dist\/js\/functions-min.js.map": {
+	"\/assets\/js\/functions-min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/functions-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/assets\/js\/functions-min.js.map": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/dist\/js\/functions-min.js.map",
+		"oAP": "\/assets\/js\/functions-min.js.map",
+		"oF": 0
+		},
+	"\/assets\/js\/functions.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/functions-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/assets\/js\/swiper.jquery.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/swiper.jquery.min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/assets\/sass\/elements\/_all.sass": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/assets\/sass\/css\/_all.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/assets\/sass\/elements\/image.sass": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/assets\/sass\/css\/image.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/assets\/sass\/mazorca.sass": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 2,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "\/assets\/css\/mazorca.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"\/comments.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/comments.php",
 		"oF": 0
 		},
 	"\/footer.php": {
@@ -322,28 +416,28 @@
 		"oAP": "\/functions\/admin\/posttypes\/Cltvo_Page.php",
 		"oF": 0
 		},
-	"\/functions\/admin\/posttypes\/Cltvo_Page_Contacto.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/functions\/admin\/posttypes\/Cltvo_Page_Contacto.php",
-		"oF": 0
-		},
 	"\/functions\/admin\/posttypes\/Cltvo_Post.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/functions\/admin\/posttypes\/Cltvo_Post.php",
 		"oF": 0
 		},
-	"\/functions\/admin\/posttypes\/customs\/Cltvo_Proyectos.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/functions\/admin\/posttypes\/customs\/Cltvo_Proyectos.php",
-		"oF": 0
-		},
 	"\/functions\/admin\/posttypes\/customs\/plantilla\/Cltvo_PostType.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/functions\/admin\/posttypes\/customs\/plantilla\/Cltvo_PostType.php",
+		"oF": 0
+		},
+	"\/functions\/admin\/posttypes\/customs\/plantilla\/Cltvo_Proyectos.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/functions\/admin\/posttypes\/customs\/plantilla\/Cltvo_Proyectos.php",
+		"oF": 0
+		},
+	"\/functions\/admin\/posttypes\/plantilla\/Cltvo_Page_Contacto.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/functions\/admin\/posttypes\/plantilla\/Cltvo_Page_Contacto.php",
 		"oF": 0
 		},
 	"\/functions\/admin\/posttypes\/plantilla\/Cltvo_Page_SpecialPage.php": {
@@ -454,10 +548,10 @@
 		"oAP": "\/header.php",
 		"oF": 0
 		},
-	"\/humans.txt": {
+	"\/home.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/humans.txt",
+		"oAP": "\/home.php",
 		"oF": 0
 		},
 	"\/inc\/analytics.php": {
@@ -478,23 +572,25 @@
 		"oAP": "\/index.php",
 		"oF": 0
 		},
-	"\/js\/admin-functions.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/dist\/js\/admin-functions-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 1
+	"\/node_modules": {
+		"ft": 65536,
+		"oA": 2,
+		"oAP": "\/build\/node_modules",
+		"oF": 0
 		},
-	"\/js\/functions.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/dist\/js\/functions-min.js",
+	"\/package.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/package-min.json",
 		"oF": 0,
-		"sC": 0,
-		"tS": 1
+		"oO": 0,
+		"oS": 1
+		},
+	"\/page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page.php",
+		"oF": 0
 		},
 	"\/README.md": {
 		"cS": 0,
@@ -514,26 +610,53 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/README.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/README.txt",
+		"oF": 0
+		},
+	"\/rtl.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/rtl-min.css",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/screenshot.png": {
 		"ft": 32768,
 		"iS": 6186,
 		"oA": 0,
 		"oAP": "\/screenshot.png",
 		"oF": 0,
-		"opt": 0
+		"opt": 1
 		},
-	"\/scss\/mazorca.scss": {
-		"aP": 1,
-		"bl": 1,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 0,
-		"oAP": "\/dist\/css\/mazorca.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
+	"\/search.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/search.php",
+		"oF": 0
+		},
+	"\/searchform.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/searchform.php",
+		"oF": 0
+		},
+	"\/sidebar.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/sidebar.php",
+		"oF": 0
+		},
+	"\/single.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/single.php",
+		"oF": 0
 		},
 	"\/style.css": {
 		"aP": 1,
@@ -2298,7 +2421,7 @@
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*-min.js",
-		"autoOutputPathRelativePath": "..\/dist\/js",
+		"autoOutputPathRelativePath": "..\/js",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 2,
@@ -2401,7 +2524,7 @@
 	"languageDefaultsSASS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.css",
-		"autoOutputPathRelativePath": "..\/..\/dist\/css",
+		"autoOutputPathRelativePath": "..\/css",
 		"autoOutputPathReplace1": "sass",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 2,
@@ -2410,7 +2533,7 @@
 		"decimalPrecision": 10,
 		"outputStyle": 3,
 		"shouldRunAutoprefixer": 1,
-		"shouldRunBless": 1,
+		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
 	"languageDefaultsSLIM": {
