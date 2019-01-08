@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - Page Links To - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-07-10 11:40:16+0000\n"
+"PO-Revision-Date: 2017-02-14 08:40:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.3.0-alpha\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Page Links To - Stable (latest release)\n"
 
@@ -29,29 +29,29 @@ msgstr "http://txfx.net/wordpress-plugins/page-links-to/"
 
 #. Plugin Name of the plugin/theme
 msgid "Page Links To"
-msgstr "La página enlaza a"
+msgstr "Page Links To"
 
-#: page-links-to.php:570
+#: page-links-to.php:596
 msgid "<strong>Note</strong>: This content is pointing to a custom URL. Use the &#8220;Page Links To&#8221; box to change this behavior."
 msgstr "<strong>Atención</strong>: Este contenido apunta a una URL personalizada. Usa la caja de &#8220;La página enlaza a&#8221; para cambiar este comportamiento. "
 
-#: page-links-to.php:274
+#: page-links-to.php:304
 msgid "Open this link in a new tab"
 msgstr "Abrir este enlace en una nueva pestaña"
 
-#: page-links-to.php:271
+#: page-links-to.php:301
 msgid "A custom URL"
 msgstr "Una URL personalizada"
 
-#: page-links-to.php:270
+#: page-links-to.php:300
 msgid "Its normal WordPress URL"
 msgstr "La URL normal de WordPress"
 
-#: page-links-to.php:269
+#: page-links-to.php:299
 msgid "Point this content to:"
 msgstr "Apuntar este contenido a:"
 
-#: page-links-to.php:249
+#: page-links-to.php:278
 msgctxt "Meta box title"
 msgid "Page Links To"
 msgstr "La página enlaza a"

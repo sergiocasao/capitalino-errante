@@ -2,7 +2,7 @@
 /**
 Plugin Name: Spotify Master
 Plugin URI: http://wordpress.techgasp.com/spotify-master/
-Version: 5.0.5
+Version: 5.0.7
 Author: TechGasp
 Author URI: http://wordpress.techgasp.com
 Text Domain: spotify-master
@@ -26,7 +26,7 @@ License: GPL2 or later
 */
 if(!class_exists('spotify_master')) :
 ///////DEFINE///////
-define( 'SPOTIFY_MASTER_VERSION', '5.0.5' );
+define( 'SPOTIFY_MASTER_VERSION', '5.0.7' );
 define( 'SPOTIFY_MASTER_NAME', 'Spotify Master' );
 
 class spotify_master{
