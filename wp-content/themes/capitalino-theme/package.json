@@ -1,0 +1,25 @@
+{
+  "name": "capitalino-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bulma": "^0.3.1"
+  },
+  "devDependencies": {
+    "bulma": "^0.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sifonsecac/capitalino-errante.git"
+  },
+  "author": "Sergio Fonseca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sifonsecac/capitalino-errante/issues"
+  },
+  "homepage": "https://github.com/sifonsecac/capitalino-errante#readme"
+}

@@ -1,0 +1,2 @@
+"use strict";!function($){$(document).ready(function(){$(".nav-toggle").on("click",function(){$(this).toggleClass("is-active"),$(".nav-menu").toggleClass("is-active")});var e=new Swiper(".swiper-container",{pagination:".swiper-pagination",paginationClickable:!0,spaceBetween:0,centeredSlides:!0,autoplay:2500,autoplayDisableOnInteraction:!1})})}(jQuery);
+//# sourceMappingURL=./functions-min.js.map
