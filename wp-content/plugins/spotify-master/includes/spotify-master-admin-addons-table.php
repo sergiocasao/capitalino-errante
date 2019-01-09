@@ -16,11 +16,14 @@ class spotify_master_admin_addons_table extends WP_List_Table {
 	}
 	else{
 		$spotify_master_addon = "no";
-		$spotify_master_addon_get = '<a class="button-primary" href="https://wordpress.techgasp.com/spotify-master/" target="_blank" title="Get Add-ons" style="float:left;">Get Add-ons</a>';
+		$spotify_master_addon_get = '<a class="button-primary" href="https://wordpress.techgasp.com/spotify-master/" target="_blank" title="Get all Add-ons" style="float:left;">Get all Add-ons pack for peanuts</a>';
 	}
 ?>
 <table class="widefat" cellspacing="0">
 	<thead>
+		<tr>
+			<th colspan="3"><?php echo $spotify_master_addon_get; ?></th>
+		</tr>
 		<tr>
 			<th><h2><img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; height:18px; vertical-align:middle;" /><?php _e('&nbsp;Screenshot', 'spotify_master'); ?></h2></th>
 			<th><h2><img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; height:18px; vertical-align:middle;" /><?php _e('&nbsp;Description', 'spotify_master'); ?></h2></th>
@@ -69,12 +72,12 @@ class spotify_master_admin_addons_table extends WP_List_Table {
 		</tr>
 		<tr class="alternate">
 			<td style="vertical-align:middle"><img src="<?php echo plugins_url('images/techgasp-spotifymaster-admin-addons-shortcode-in.png', dirname(__FILE__)); ?>" alt="<?php echo $plugin_master_name; ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
-			<td style="vertical-align:middle"><h3>Individual Shortcode</h3><p>Spotify Master uses TechGasp Wordpress Framework. The <b>Individual Shortcode</b> allows you to have a different customized Spotify Player in each page or post. Easy to use it can be found when you edit a page or a post under the wordpress text editor. Once you have created your shortcode, Just insert the shortcode <b>[spotify-master]</b> anywhere inside that text.</p></td>
+			<td style="vertical-align:middle"><h3>Individual Shortcode</h3><p>Spotify Master uses TechGasp Wordpress Framework. The <b>Individual Shortcode</b> allows you to have a different customized Spotify Player in each page or post. Easy to use it can be found in the plugin <b>Individual Shortcodes menu</b> or when you edit a page or a post under the wordpress text editor. Once you have created your shortcode, Just insert the shortcode <b>[spotify-master]</b> anywhere inside that text.</p></td>
 			<td style="vertical-align:middle"><img src="<?php echo plugins_url('images/techgasp-check-'.$spotify_master_addon.'.png', dirname(__FILE__)); ?>" alt="<?php echo $plugin_master_name; ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
 		<tr>
 			<td style="vertical-align:middle"><img src="<?php echo plugins_url('images/techgasp-spotifymaster-admin-addons-shortcode-un.png', dirname(__FILE__)); ?>" alt="<?php echo $plugin_master_name; ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
-			<td style="vertical-align:middle"><h3>Universal Shortcode</h3><p>Spotify Master uses TechGasp Wordpress Framework. The <b>Universal Shortcode</b> allows you to have the same Spotify Player across different pages or posts. Easy to use it can be found right here under the Shortcodes menu. Once you have created your shortcode, Just insert the shortcode <b>[spotify-master-un]</b> anywhere inside the text of your pages or posts.</p></td>
+			<td style="vertical-align:middle"><h3>Universal Shortcode</h3><p>Spotify Master uses TechGasp Wordpress Framework. The <b>Universal Shortcode</b> allows you to have the same Spotify Player across different pages or posts. Easy to use it can be found right here under the <b>Universal Shortcodes menu</b>. Once you have created your shortcode, Just insert the shortcode <b>[spotify-master-un]</b> anywhere inside the text of your pages or posts.</p></td>
 			<td style="vertical-align:middle"><img src="<?php echo plugins_url('images/techgasp-check-'.$spotify_master_addon.'.png', dirname(__FILE__)); ?>" alt="<?php echo $plugin_master_name; ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
 		<tr class="alternate">

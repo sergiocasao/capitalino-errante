@@ -86,7 +86,7 @@ class spotify_master_widget_buttons extends WP_Widget {
 			else{
 			$spotifybutton_count_create = '&show-count=0';
 			}
-		echo '<iframe src="https://embed.spotify.com/follow/1/?uri='.$spotifybutton_uri.'&size='.$spotifybutton_size_create.'&theme='.$spotifybutton_theme_create.''.$spotifybutton_count_create.'" '.$spotifybutton_size_pixels.' scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>';
+		echo '<iframe src="https://open.spotify.com/follow/1/?uri='.$spotifybutton_uri.'&size='.$spotifybutton_size_create.'&theme='.$spotifybutton_theme_create.''.$spotifybutton_count_create.'" '.$spotifybutton_size_pixels.' scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>';
 		}
 		else{
 		}

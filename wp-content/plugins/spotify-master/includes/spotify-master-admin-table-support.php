@@ -33,7 +33,7 @@ function display() {
 			<td>Are you in trouble?</td>
 		</tr>
 		<tr class="alternate">
-			<td>Click -> Export Support Data button and create a <a href="https://wordpress.techgasp.com/support/" target="_blank" title="TechGasp Support"><em>Support Ticket</em></a> at TechGasp Website attaching the plugin_info.txt file to the ticket.</td>
+			<td>Click -> Export Support Data button and create a <a href="https://www.techgasp.com/support/" target="_blank" title="TechGasp Support"><em>Support Ticket</em></a> at TechGasp Website attaching the plugin_info.txt file to the ticket.</td>
 		</tr>
 	</tbody>
 </table>

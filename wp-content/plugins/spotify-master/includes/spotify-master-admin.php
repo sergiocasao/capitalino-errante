@@ -62,7 +62,7 @@ $wp_list_table->display();
 
 <p>
 <a class="button-secondary" href="https://wordpress.techgasp.com" target="_blank" title="Visit Website">More TechGasp Plugins</a>
-<a class="button-secondary" href="https://wordpress.techgasp.com/support/" target="_blank" title="TechGasp Support">TechGasp Support</a>
+<a class="button-secondary" href="https://www.techgasp.com/support/" target="_blank" title="TechGasp Support">TechGasp Support</a>
 <a class="button-primary" href="https://wordpress.techgasp.com/spotify-master/" target="_blank" title="Visit Website"><?php echo $plugin_master_name; ?> Info</a>
 <a class="button-primary" href="https://wordpress.techgasp.com/spotify-master-documentation/" target="_blank" title="Visit Website"><?php echo $plugin_master_name; ?> Documentation</a>
 </p>

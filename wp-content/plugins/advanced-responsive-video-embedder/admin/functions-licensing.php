@@ -90,7 +90,8 @@ function nextgenthemes_ads_page() { ?>
 		margin-right: 1.7rem;
 		font-size: 1.2rem;
 	}
-	#nextgenthemes-ads ol {
+	#nextgenthemes-ads ul {
+		list-style: square;
 		margin-left: 2.5rem;
 		margin-right: .7rem;
 	}
@@ -113,23 +114,9 @@ function nextgenthemes_ads_page() { ?>
 <div id="nextgenthemes-ads">
 
 	<?php if ( ! defined( 'ARVE_PRO_VERSION' ) ) : ?>
-		<a href="https://nextgenthemes.com/plugins/advanced-responsive-video-embedder-pro/">
+		<a href="https://nextgenthemes.com/plugins/arve-pro/">
 			<figure><img src="<?php echo $img_dir; ?>arve.svg" alt"ARVE"></figure>
-		  <h1>^ Pro Addon</h1>
-			<ol>
-				<li><strong>Feel good about yourself</strong><br>for supporting my long time work on this plugin. Tons of hours, weekends … always worked on improving it 4+ years.</li>
-				<li><strong>Disable links in embeds (killer feature!)</strong><br>For example: Clicking on a title in a YouTube embed will not open a new popup/tab/window. <strong>Prevent video hosters to lead your visitors away from your site!</strong> Note this also breaks sharing functionality and is not possible when the provider requires flash. Right click on links still works.</li>
-				<li><strong>Lazyload mode</strong><br>Make your site load <strong>faster</strong> by loading only a image instead of the entire video player on pageload.  </li>
-				<li><strong>Lazyload -&gt; Lightbox</strong><br>Shows the Video in a Lightbox after clicking a preview image</li>
-				<li><strong>Link -&gt; Lightbox</strong><br>Use simple links as triggers for lightboxed videos</li>
-				<li>Show the latest video of a YouTube channel by using the channel URL (updated/cached hourly)</li>
-				<li>Automatic or custom thumbnail images</li>
-				<li>Automatic or custom titles on top of your thumbnails</li>
-				<li>&#39;Grow on click&#39; feature</li>
-				<li>3 hover styles</li>
-				<li>2 play icon styles to choose from</li>
-				<li>Responsive thumbnails using cutting edge HTML5 technology</li>
-			</ol>
+			<?php nextgenthemes_feature_list_html( ARVE_PATH . 'readme/html/20-description-features-pro.html' ); ?>
 			<span>Paid</span>
 		</a>
 	<?php endif; ?>
@@ -137,16 +124,7 @@ function nextgenthemes_ads_page() { ?>
 	<?php if ( ! defined( 'ARVE_AMP_VERSION' ) ) : ?>
 		<a href="https://nextgenthemes.com/plugins/arve-accelerated-mobile-pages-addon/">
 		  <figure><img src="<?php echo $img_dir; ?>arve.svg" alt"ARVE"></figure>
-			<h3>^ AMP Addon</h3>
-			<ol>
-				<li>Requires the gratis plugins ARVE and AMP</li>
-				<li>Makes ARVE ready for Accelerated Mobile Pages (AMP)</li>
-				<li>It will display videos embedded with ARVE on AMP pages correctly</li>
-				<li>No options, just works</li>
-				<li>It creates &lt;amp-youtube&gt;, &lt;amp-vimeo&gt;, &lt;amp-dailymotion&gt; elements</li>
-				<li>For all other video hosts supported by ARVE &lt;amp-iframe&gt; element is used</li>
-				<li>HTML5 video files are also supported with &lt;amp-video&gt;</li>
-			</ol>
+			<?php nextgenthemes_feature_list_html( ARVE_PATH . 'readme/html/25-description-features-amp.html' ); ?>
 			<span>Paid</span>
 		</a>
 	<?php endif; ?>
@@ -162,6 +140,10 @@ function nextgenthemes_ads_page() { ?>
 </div>
 
 <?php
+}
+
+function nextgenthemes_feature_list_html( $filepath ) {
+	echo strip_tags( file_get_contents( $filepath ), '<ul></ul><li></li><h3></h3>' );
 }
 
 function nextgenthemes_activation_notices() {
@@ -186,16 +168,25 @@ function nextgenthemes_get_products() {
 
 	$products = array(
 		'arve_pro' => array(
-			'name'    => 'Advanced Responsive Video Embedder Pro',
+			'name'    => 'ARVE Pro',
+			'id'      => 1253,
 			'type'    => 'plugin',
 			'author'  => 'Nicolas Jonas',
-			'url'     => 'https://nextgenthemes.com/plugins/advanced-responsive-video-embedder-pro/',
+			'url'     => 'https://nextgenthemes.com/plugins/arve-pro/',
 		),
 		'arve_amp' => array(
-			'name'   => 'ARVE Accelerated Mobile Pages Addon',
+			'name'   => 'ARVE AMP',
+			'id'     => 16941,
 			'type'   => 'plugin',
 			'author' => 'Nicolas Jonas',
-			'url'    => 'https://nextgenthemes.com/plugins/arve-accelerated-mobile-pages-addon/',
+			'url'    => 'https://nextgenthemes.com/plugins/arve-amp/',
+		),
+		'arve_random_video' => array(
+			'name'   => 'ARVE Random Video',
+			'id'     => 31933,
+			'type'   => 'plugin',
+			'author' => 'Nicolas Jonas',
+			'url'    => 'https://nextgenthemes.com/plugins/arve-random-video/',
 		)
 	);
 
@@ -218,16 +209,22 @@ function nextgenthemes_get_products() {
 			$products[ $key ]['file'] = constant( $file_define );
 		}
 
-		if ( 'plugin' == $value['type'] ) {
+		$version_define = "\\nextgenthemes\\$key\\VERSION";
+		$file_define    = "\\nextgenthemes\\$key\\FILE";
+
+		if( defined( $version_define ) ) {
+			$products[ $key ]['version'] = constant( $version_define );
+		}
+		if( defined( $file_define ) ) {
+			$products[ $key ]['file'] = constant( $file_define );
+		}
+
+		if ( 'plugin' === $value['type'] ) {
 
 			$file_slug = str_replace( '_', '-', $key );
 
 			$products[ $key ]['installed'] = nextgenthemes_is_plugin_installed( "$file_slug/$file_slug.php" );
-
-			if ( ! empty( $products[ $key ]['file'] ) ) {
-				$plugin_basename = plugin_basename( $products[ $key ]['file'] );
-				$products[ $key ]['active'] = is_plugin_active( $plugin_basename );
-			}
+			$products[ $key ]['active']    = is_plugin_active( "$file_slug/$file_slug.php" );
 		}
 	}
 
@@ -252,36 +249,12 @@ function nextgenthemes_is_plugin_installed( $plugin_basename ) {
  */
 function nextgenthemes_menus() {
 
- 	$plugin_screen_hook_suffix = add_menu_page(
- 		__( 'Nextgenthemes', ARVE_SLUG ), # Page Title
- 		__( 'Nextgenthemes', ARVE_SLUG ), # Menu Tile
- 		'manage_options',                 # capability
- 		'nextgenthemes',                  # menu-slug
- 		'nextgenthemes_ads_page',         # function
-		'dashicons-video-alt3',           # icon_url
-		'80.892'                          # position
- 	);
-
-	/*
-  add_submenu_page(
-    'nextgenthemes',                      # parent_slug
-    __( 'Addons and Themes', ARVE_SLUG ), # Page Title
-    __( 'Addons and Themes', ARVE_SLUG ), # Menu Tile
-    'manage_options',                     # capability
-    'nextgenthemes',                      # menu-slug
-    function() {
-      require_once plugin_dir_path( __FILE__ ) . 'html-ad-page.php';
-    }
-  );
-	*/
-
-	add_submenu_page(
-		'nextgenthemes',              # parent_slug
-		__( 'Licenses', ARVE_SLUG ),  # Page Title
-		__( 'Licenses', ARVE_SLUG ),  # Menu Tile
-		'manage_options',             # capability
-		'nextgenthemes-licenses',     # menu-slug
-		'nextgenthemes_licenses_page' # function
+	$plugin_screen_hook_suffix = add_options_page(
+		__( 'ARVE Licenses', ARVE_SLUG ),
+		__( 'ARVE Licenses', ARVE_SLUG ),
+		'manage_options',
+		'nextgenthemes-licenses',
+		'nextgenthemes_licenses_page'
 	);
 }
 
@@ -420,13 +393,13 @@ function nextgenthemes_update_key_status( $product, $key ) {
 	update_option( "nextgenthemes_{$product}_key_status", $key );
 }
 function nextgenthemes_has_valid_key( $product ) {
-	return ( 'valid' == nextgenthemes_get_key_status( $product ) ) ? true : false;
+	return ( 'valid' === nextgenthemes_get_key_status( $product ) ) ? true : false;
 }
 
 function nextgenthemes_api_update_key_status( $product, $key, $action ) {
 
 	$products   = nextgenthemes_get_products();
-	$key_status = nextgenthemes_api_action( $products[ $product ]['name'], $key, $action );
+	$key_status = nextgenthemes_api_action( $products[ $product ]['id'], $key, $action );
 
 	nextgenthemes_update_key_status( $product, $key_status );
 }
@@ -476,14 +449,15 @@ function nextgenthemes_init_edd_updaters() {
 function nextgenthemes_init_plugin_updater( $product ) {
 
 	// setup the updater
-	new EDD_SL_Plugin_Updater(
-		'https://nextgenthemes.com',
+	new Nextgenthemes_Plugin_Updater(
+		apply_filters( 'nextgenthemes_api_url', 'https://nextgenthemes.com' ),
 		$product['file'],
 		array(
-			'version' 	=> $product['version'],
-			'license' 	=> nextgenthemes_get_key( $product['slug'] ),
-			'item_name' => $product['name'],
-			'author' 	  => $product['author']
+			'version'   => $product['version'],
+			'license'   => nextgenthemes_get_key( $product['slug'] ),
+			#'item_name' => $product['name'],
+			'item_id'   => $product['id'],
+			'author'    => $product['author']
 		)
 	);
 }
@@ -492,14 +466,14 @@ function nextgenthemes_init_theme_updater( $product ) {
 
 	new EDD_Theme_Updater(
 		array(
-			'remote_api_url' 	=> 'https://nextgenthemes.com',
-			'version' 			  => $product['version'],
-			'license' 			  => nextgenthemes_get_key( $product['slug'] ),
-			'item_name' 		  => $product['name'],
-			'author'			    => $product['author'],
-			'theme_slug'      => $product['slug'],
-			'download_id'     => $product['download_id'], // Optional, used for generating a license renewal link
-			#'renew_url'       => $product['renew_link'], // Optional, allows for a custom license renewal link
+			'remote_api_url' => 'https://nextgenthemes.com',
+			'version'        => $product['version'],
+			'license'        => nextgenthemes_get_key( $product['slug'] ),
+			'item_id'        => $product['name'],
+			'author'         => $product['id'],
+			'theme_slug'     => $product['slug'],
+			'download_id'    => $product['download_id'], // Optional, used for generating a license renewal link
+			#'renew_url'     => $product['renew_link'], // Optional, allows for a custom license renewal link
 		),
 		array(
 			'theme-license'             => __( 'Theme License', ARVE_SLUG ),
@@ -528,21 +502,25 @@ function nextgenthemes_init_theme_updater( $product ) {
 	);
 }
 
-function nextgenthemes_api_action( $item_name, $key, $action ) {
+function nextgenthemes_api_action( $item_id, $key, $action ) {
 
 	if ( ! in_array( $action, array( 'activate', 'deactivate', 'check' ) ) ) {
 		wp_die( 'invalid action' );
 	}
 
-	// Data to send to the API
+	// data to send in our API request
 	$api_params = array(
 		'edd_action' => $action . '_license',
 		'license'    => sanitize_text_field( $key ),
-		'item_name'  => urlencode( $item_name ),
-		'url'        => home_url(),
+		'item_id'    => $item_id,
+		'url'        => home_url()
 	);
 
-	$response = wp_remote_post( 'https://nextgenthemes.com', array( 'timeout' => 15, 'sslverify' => true, 'body' => $api_params ) );
+	// Call the custom API.
+	$response = wp_remote_post(
+		'https://nextgenthemes.com',
+		array( 'timeout' => 15, 'sslverify' => true, 'body' => $api_params )
+	);
 
 	// make sure the response came back okay
 	if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
@@ -557,14 +535,14 @@ function nextgenthemes_api_action( $item_name, $key, $action ) {
 
 		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
-		if ( false === $license_data->success ) :
+		if ( false === $license_data->success ) {
 
 			switch( $license_data->error ) {
 
 				case 'expired' :
 
 					$message = sprintf(
-						__( 'Your license key expired on %s.', ARVE_SLUG ),
+						__( 'Your license key expired on %s.' ),
 						date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires, current_time( 'timestamp' ) ) )
 					);
 					break;
@@ -587,7 +565,7 @@ function nextgenthemes_api_action( $item_name, $key, $action ) {
 
 				case 'item_name_mismatch' :
 
-					$message = sprintf( __( 'This appears to be an invalid license key for %s.', ARVE_SLUG ), $item_name );
+					$message = sprintf( __( 'This appears to be an invalid license key for %s.' ), ARVE_SLUG );
 					break;
 
 				case 'no_activations_left':
@@ -600,13 +578,33 @@ function nextgenthemes_api_action( $item_name, $key, $action ) {
 					$message = __( 'An error occurred, please try again.', ARVE_SLUG );
 					break;
 			}
-
-		endif; // false === $license_data->success
+		}
 	}
 
-	if( empty( $message ) ) {
-		$message = $license_data->license;
+	if ( empty( $message ) ) {
+
+		if ( empty( $license_data->license ) ) {
+
+			$textarea_dump = arve_textarea_dump( $response );
+
+			$message = sprintf(
+				__( 'Error. Please report the following:<br> %s', ARVE_SLUG ),
+				$textarea_dump
+			);
+		} else {
+			$message = $license_data->license;
+		}
 	}
 
 	return $message;
+}
+
+function arve_dump( $var ) {
+	ob_start();
+	var_dump( $var );
+	return ob_get_clean();
+}
+
+function arve_textarea_dump( $var ) {
+	return sprintf( '<textarea style="width: 100%; height: 70vh;">%s</textarea>', esc_textarea( arve_dump( $var ) ) );
 }

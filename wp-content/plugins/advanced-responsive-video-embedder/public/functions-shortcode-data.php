@@ -10,7 +10,7 @@ function arve_get_default_aspect_ratio( $aspect_ratio, $provider ) {
 
 function arve_get_html5_attributes() {
 
-	return array( 'mp4', 'm4v', 'webm', 'ogv' );
+	return array( 'mp4', 'm4v', 'webm', 'ogv', 'ogg', 'ogm' );
 }
 
 function arve_url_query_array( $url ) {
@@ -28,11 +28,16 @@ function arve_url_query_array( $url ) {
 
 function arve_build_iframe_src( $atts ) {
 
-	$id       = $atts['id'];
-	$lang     = $atts['lang'];
-	$provider = $atts['provider'];
-
+	$id         = $atts['id'];
+	$lang       = $atts['lang'];
+	$provider   = $atts['provider'];
+    $options    = arve_get_options();
 	$properties = arve_get_host_properties();
+
+	if ( $options['youtube_nocookie'] ) {
+		$properties['youtube']['embed_url']     = 'https://www.youtube-nocookie.com/embed/%s';
+		$properties['youtubelist']['embed_url'] = 'https://www.youtube-nocookie.com/embed/videoseries?list=%s';
+	}
 
 	if ( isset( $properties[ $provider ]['embed_url'] ) ) {
 		$pattern = $properties[ $provider ]['embed_url'];
@@ -110,11 +115,9 @@ function arve_aspect_ratio_fixes( $aspect_ratio, $provider, $mode ) {
 	return $aspect_ratio;
 }
 
-function arve_add_autoplay_query_arg( $atts ) {
+function arve_add_autoplay_query_arg( $src, $a ) {
 
-	$src = $atts['iframe_src'];
-
-	switch ( $atts['provider'] ) {
+	switch ( $a['provider'] ) {
 		case 'alugha':
 		case 'archiveorg':
 		case 'dailymotion':
@@ -134,7 +137,7 @@ function arve_add_autoplay_query_arg( $atts ) {
 			$off = add_query_arg( 'autoplay', 'false', $src );
 			break;
 		case 'livestream':
-		case 'Wistia':
+		case 'wistia':
 			$on  = add_query_arg( 'autoPlay', 'true',  $src );
 			$off = add_query_arg( 'autoPlay', 'false', $src );
 			break;
@@ -159,6 +162,7 @@ function arve_add_autoplay_query_arg( $atts ) {
 			$on  = add_query_arg( 'player_autoplay', 'true',  $src );
 			$off = add_query_arg( 'player_autoplay', 'false', $src );
 			break;
+		/*
 		case 'iframe':
 			# We are spamming all kinds of autoplay parameters here in hope of a effect
 			$on = add_query_arg( array(
@@ -174,6 +178,7 @@ function arve_add_autoplay_query_arg( $atts ) {
 				'player_autoStart' => 'false',
 			), $src );
 			break;
+		*/
 		default:
 			# Do nothing for providers that to not support autoplay or fail with parameters
 			$on  = $src;
@@ -181,32 +186,29 @@ function arve_add_autoplay_query_arg( $atts ) {
 			break;
 	}
 
-	if( $atts['autoplay'] ) {
+	if( $a['autoplay'] ) {
 		return $on;
 	} else {
 		return $off;
 	}
 }
 
-function arve_add_query_args_to_iframe_src( $atts ) {
+function arve_add_query_args_to_iframe_src( $src, $atts ) {
 
 	$options = arve_get_options();
 
-	$parameters = $atts['parameters'];
-	$provider   = $atts['provider'];
+	$host = $atts['provider'];
 
-	$parameters        = wp_parse_args( preg_replace( '!\s+!', '&', trim( $parameters ) ) );
+	$parameters        = wp_parse_args( preg_replace( '!\s+!', '&', trim( $atts['parameters'] ) ) );
 	$option_parameters = array();
 
-	if ( isset( $options['params'][ $provider ] ) ) {
-		$option_parameters = wp_parse_args( preg_replace( '!\s+!', '&', trim( $options['params'][ $provider ] ) ) );
+	if ( isset( $options['params'][ $host ] ) ) {
+		$option_parameters = wp_parse_args( preg_replace( '!\s+!', '&', trim( $options['params'][ $host ] ) ) );
 	}
 
 	$parameters = wp_parse_args( $parameters, $option_parameters );
 
-	$src = add_query_arg( $parameters, $atts['iframe_src'] );
-
-	return $src;
+	return add_query_arg( $parameters, $src );
 }
 
 function arve_maxwidth_when_aligned( $maxwidth, $align ) {

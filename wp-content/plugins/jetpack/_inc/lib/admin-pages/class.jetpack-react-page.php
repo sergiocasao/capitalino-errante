@@ -9,10 +9,8 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 	protected $is_redirecting = false;
 
 	function get_page_hook() {
-		$title = _x( 'Jetpack', 'The menu item label', 'jetpack' );
-
 		// Add the main admin Jetpack menu
-		return add_menu_page( 'Jetpack', $title, 'jetpack_admin_page', 'jetpack', array( $this, 'render' ), 'div' );
+		return add_menu_page( 'Jetpack', 'Jetpack', 'jetpack_admin_page', 'jetpack', array( $this, 'render' ), 'div' );
 	}
 
 	function add_page_actions( $hook ) {
@@ -42,7 +40,6 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 
 	/**
 	 * Add Jetpack Dashboard sub-link and point it to AAG if the user can view stats, manage modules or if Protect is active.
-	 * Otherwise and only if user is allowed to see the Jetpack Admin, the Dashboard sub-link is added but pointed to Apps tab.
 	 *
 	 * Works in Dev Mode or when user is connected.
 	 *
@@ -110,7 +107,6 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 	function render_nojs_configurable( $module_name ) {
 		$module_name = preg_replace( '/[^\da-z\-]+/', '', $_GET['configure'] );
 
-		include_once( JETPACK__PLUGIN_DIR . '_inc/header.php' );
 		echo '<div class="wrap configure-module">';
 
 		if ( Jetpack::is_module( $module_name ) && current_user_can( 'jetpack_configure_modules' ) ) {
@@ -148,21 +144,6 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 		}
 	}
 
-	function get_i18n_data() {
-
-		$i18n_json = JETPACK__PLUGIN_DIR . 'languages/json/jetpack-' . jetpack_get_user_locale() . '.json';
-
-		if ( is_file( $i18n_json ) && is_readable( $i18n_json ) ) {
-			$locale_data = @file_get_contents( $i18n_json );
-			if ( $locale_data ) {
-				return $locale_data;
-			}
-		}
-
-		// Return empty if we have nothing to return so it doesn't fail when parsed in JS
-		return '{}';
-	}
-
 	/**
 	 * Gets array of any Jetpack notices that have been dismissed.
 	 *
@@ -183,39 +164,32 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 	}
 
 	function additional_styles() {
-		$rtl = is_rtl() ? '.rtl' : '';
-
-		wp_enqueue_style( 'dops-css', plugins_url( "_inc/build/admin.dops-style$rtl.css", JETPACK__PLUGIN_FILE ), array(), JETPACK__VERSION );
-		wp_enqueue_style( 'components-css', plugins_url( "_inc/build/style.min$rtl.css", JETPACK__PLUGIN_FILE ), array(), JETPACK__VERSION );
+		Jetpack_Admin_Page::load_wrapper_styles();
 	}
 
 	function page_admin_scripts() {
-		if ( $this->is_redirecting ) {
+		if ( $this->is_redirecting || isset( $_GET['configure'] ) ) {
 			return; // No need for scripts on a fallback page
 		}
-
-		$is_dev_mode = Jetpack::is_development_mode();
 
 		// Enqueue jp.js and localize it
 		wp_enqueue_script( 'react-plugin', plugins_url( '_inc/build/admin.js', JETPACK__PLUGIN_FILE ), array(), JETPACK__VERSION, true );
 
-		if ( ! $is_dev_mode ) {
+		if ( ! Jetpack::is_development_mode() && Jetpack::is_active() ) {
 			// Required for Analytics
 			wp_enqueue_script( 'jp-tracks', '//stats.wp.com/w.js', array(), gmdate( 'YW' ), true );
 		}
 
-		// Collecting roles that can view site stats
-		$stats_roles = array();
-		$enabled_roles = function_exists( 'stats_get_option' ) ? stats_get_option( 'roles' ) : array( 'administrator' );
-		foreach( get_editable_roles() as $slug => $role ) {
-			$stats_roles[ $slug ] = array(
-				'name' => translate_user_role( $role['name'] ),
-				'canView' => is_array( $enabled_roles ) ? in_array( $slug, $enabled_roles, true ) : false,
-			);
-		}
+		// Add objects to be passed to the initial state of the app
+		wp_localize_script( 'react-plugin', 'Initial_State', $this->get_initial_state() );
+	}
 
-		$response = rest_do_request( new WP_REST_Request( 'GET', '/jetpack/v4/module/all' ) );
-		$modules = $response->get_data();
+	function get_initial_state() {
+		// Load API endpoint base classes and endpoints for getting the module list fed into the JS Admin Page
+		require_once JETPACK__PLUGIN_DIR . '_inc/lib/core-api/class.jetpack-core-api-xmlrpc-consumer-endpoint.php';
+		require_once JETPACK__PLUGIN_DIR . '_inc/lib/core-api/class.jetpack-core-api-module-endpoints.php';
+		$moduleListEndpoint = new Jetpack_Core_API_Module_List_Endpoint();
+		$modules = $moduleListEndpoint->get_modules();
 
 		// Preparing translated fields for JSON encoding by transforming all HTML entities to
 		// respective characters.
@@ -226,11 +200,19 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 			$modules[ $slug ]['long_description'] = html_entity_decode( $data['long_description'] );
 		}
 
-		// Get last post, to build the link to Customizer in the Related Posts module.
-		$last_post = get_posts( array( 'posts_per_page' => 1 ) );
-		$last_post = isset( $last_post[0] ) && $last_post[0] instanceof WP_Post
-			? get_permalink( $last_post[0]->ID )
-			: get_home_url();
+		// Collecting roles that can view site stats.
+		$stats_roles = array();
+		$enabled_roles = function_exists( 'stats_get_option' ) ? stats_get_option( 'roles' ) : array( 'administrator' );
+
+		if ( ! function_exists( 'get_editable_roles' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/user.php';
+		}
+		foreach ( get_editable_roles() as $slug => $role ) {
+			$stats_roles[ $slug ] = array(
+				'name' => translate_user_role( $role['name'] ),
+				'canView' => is_array( $enabled_roles ) ? in_array( $slug, $enabled_roles, true ) : false,
+			);
+		}
 
 		// Get information about current theme.
 		$current_theme = wp_get_theme();
@@ -243,8 +225,13 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 			}
 		}
 
-		// Add objects to be passed to the initial state of the app
-		wp_localize_script( 'react-plugin', 'Initial_State', array(
+		// Get last post, to build the link to Customizer in the Related Posts module.
+		$last_post = get_posts( array( 'posts_per_page' => 1 ) );
+		$last_post = isset( $last_post[0] ) && $last_post[0] instanceof WP_Post
+			? get_permalink( $last_post[0]->ID )
+			: get_home_url();
+
+		return array(
 			'WP_API_root' => esc_url_raw( rest_url() ),
 			'WP_API_nonce' => wp_create_nonce( 'wp_rest' ),
 			'pluginBaseUrl' => plugins_url( '', JETPACK__PLUGIN_FILE ),
@@ -252,20 +239,22 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 				'isActive'  => Jetpack::is_active(),
 				'isStaging' => Jetpack::is_staging_site(),
 				'devMode'   => array(
-					'isActive' => $is_dev_mode,
+					'isActive' => Jetpack::is_development_mode(),
 					'constant' => defined( 'JETPACK_DEV_DEBUG' ) && JETPACK_DEV_DEBUG,
 					'url'      => site_url() && false === strpos( site_url(), '.' ),
 					'filter'   => apply_filters( 'jetpack_development_mode', false ),
 				),
 				'isPublic'	=> '1' == get_option( 'blog_public' ),
 				'isInIdentityCrisis' => Jetpack::validate_sync_error_idc_option(),
+				'sandboxDomain' => JETPACK__SANDBOX_DOMAIN,
 			),
+			'connectUrl' => Jetpack::init()->build_connect_url( true, false, false ),
 			'dismissedNotices' => $this->get_dismissed_jetpack_notices(),
 			'isDevVersion' => Jetpack::is_development_version(),
 			'currentVersion' => JETPACK__VERSION,
+			'is_gutenberg_available' => Jetpack_Gutenberg::is_gutenberg_available(),
 			'getModules' => $modules,
 			'showJumpstart' => jetpack_show_jumpstart(),
-			'showHolidaySnow' => function_exists( 'jetpack_show_holiday_snow_option' ) ? jetpack_show_holiday_snow_option() : false,
 			'rawUrl' => Jetpack::build_raw_urls( get_home_url() ),
 			'adminUrl' => esc_url( admin_url() ),
 			'stats' => array(
@@ -279,9 +268,6 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 				'roles' => $stats_roles,
 			),
 			'settings' => $this->get_flattened_settings( $modules ),
-			'settingNames' => array(
-				'jetpack_holiday_snow_enabled' => function_exists( 'jetpack_holiday_snow_option_name' ) ? jetpack_holiday_snow_option_name() : false,
-			),
 			'userData' => array(
 //				'othersLinked' => Jetpack::get_other_linked_admins(),
 				'currentUser'  => jetpack_current_user_data(),
@@ -299,7 +285,9 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 				 * @param bool $are_promotions_active Status of promotions visibility. True by default.
 				 */
 				'showPromotions' => apply_filters( 'jetpack_show_promotions', true ),
-				'isAutomatedTransfer' => jetpack_is_automated_transfer_site(),
+				'isAtomicSite' => jetpack_is_atomic_site(),
+				'plan' => Jetpack::get_active_plan(),
+				'showBackups' => Jetpack::show_backups_ui(),
 			),
 			'themeData' => array(
 				'name'      => $current_theme->get( 'Name' ),
@@ -308,8 +296,8 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 					'infinite-scroll' => current_theme_supports( 'infinite-scroll' ) || in_array( $current_theme->get_stylesheet(), $inf_scr_support_themes ),
 				),
 			),
-			'locale' => $this->get_i18n_data(),
-			'localeSlug' => join( '-', explode( '_', jetpack_get_user_locale() ) ),
+			'locale' => Jetpack::get_i18n_data_json(),
+			'localeSlug' => join( '-', explode( '_', get_user_locale() ) ),
 			'jetpackStateNotices' => array(
 				'messageCode' => Jetpack::state( 'message' ),
 				'errorCode' => Jetpack::state( 'error' ),
@@ -318,7 +306,17 @@ class Jetpack_React_Page extends Jetpack_Admin_Page {
 			'tracksUserData' => Jetpack_Tracks_Client::get_connected_user_tracks_identity(),
 			'currentIp' => function_exists( 'jetpack_protect_get_ip' ) ? jetpack_protect_get_ip() : false,
 			'lastPostUrl' => esc_url( $last_post ),
-		) );
+			'externalServicesConnectUrls' => $this->get_external_services_connect_urls()
+		);
+	}
+
+	function get_external_services_connect_urls() {
+		$connect_urls = array();
+		jetpack_require_lib( 'class.jetpack-keyring-service-helper' );
+		foreach ( Jetpack_Keyring_Service_Helper::$SERVICES as $service_name => $service_info ) {
+			$connect_urls[ $service_name ] = Jetpack_Keyring_Service_Helper::connect_url( $service_name, $service_info[ 'for' ] );
+		}
+		return $connect_urls;
 	}
 
 	/**
@@ -386,6 +384,7 @@ function jetpack_current_user_data() {
 		'isConnected' => Jetpack::is_user_connected( $current_user->ID ),
 		'isMaster'    => $is_master_user,
 		'username'    => $current_user->user_login,
+		'id'          => $current_user->ID,
 		'wpcomUser'   => $dotcom_data,
 		'gravatar'    => get_avatar( $current_user->ID, 40, 'mm', '', array( 'force_display' => true ) ),
 		'permissions' => array(
@@ -407,24 +406,4 @@ function jetpack_current_user_data() {
 	);
 
 	return $current_user_data;
-}
-
-/**
- * Set the admin language, based on user language.
- *
- * @since 4.5.0
- *
- * @return string
- *
- * @todo Remove this function when WordPress 4.8 is released
- * and replace `jetpack_get_user_locale()` in this file with `get_user_locale()`.
- */
-function jetpack_get_user_locale() {
-	$locale = get_locale();
-
-	if ( function_exists( 'get_user_locale' ) ) {
-		$locale = get_user_locale();
-	}
-
-	return $locale;
 }

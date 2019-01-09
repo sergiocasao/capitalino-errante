@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       ARVE Advanced Responsive Video Embedder
- * Plugin URI:        https://nextgenthemes.com/plugins/advanced-responsive-video-embedder-pro/
+ * Plugin URI:        https://nextgenthemes.com/plugins/arve-pro/
  * Description:       Easy responsive video embeds via URL (like WordPress) or Shortcodes. Supports almost anything you can imagine.
- * Version:           8.3.1
+ * Version:           8.10.1
  * Author:            Nicolas Jonas
  * Author URI:        https://nextgenthemes.com
  * License:           GPL-3.0
@@ -19,37 +19,32 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'ARVE_SLUG',                 'advanced-responsive-video-embedder' );
-define( 'ARVE_VERSION',              '8.3.1' );
-define( 'ARVE_PRO_VERSION_REQUIRED', '3.9.0' );
+define( 'ARVE_VERSION',              '8.10.1' );
+define( 'ARVE_PRO_VERSION_REQUIRED', '4.2.0' );
 
 define( 'ARVE_URL', plugin_dir_url( __FILE__ ) );
 define( 'ARVE_PUBLIC_URL', ARVE_URL . 'public/' );
 define( 'ARVE_ADMIN_URL',  ARVE_URL . 'admin/' );
 
+define( 'ARVE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ARVE_NUM_TRACKS', 10 );
 
-if( ! class_exists( 'EDD_SL_Plugin_Updater' ) ) {
-	require_once plugin_dir_path( __FILE__ ) . 'admin/class-edd-sl-plugin-updater.php';
-}
-
+#add_action( 'init', 'arve_init' );
 arve_init();
-#add_action( 'init', 'arve_init' ); # TODO ??
 
 function arve_init() {
 
 	add_option( 'arve_install_date', current_time( 'timestamp' ) );
 
-	require_once plugin_dir_path( __FILE__ ) . 'admin/class-arve-admin-notice-factory.php';
+	require_once __DIR__ . '/admin/class-arve-admin-notice-factory.php';
 
 	if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 		add_action( 'admin_init', 'arve_php_outdated_message' );
 		return;
 	}
 
-	if ( ! has_action( 'admin_menu', 'nextgenthemes_menus' ) ) {
-		require_once __DIR__ . '/admin/functions-licensing.php';
-	}
-
+	require_once __DIR__ . '/admin/class-nextgenthemes-plugin-updater.php';
+	require_once __DIR__ . '/admin/functions-licensing.php';
 	require_once __DIR__ . '/admin/functions-admin.php';
 	require_once __DIR__ . '/public/functions-enqueue.php';
 	require_once __DIR__ . '/public/functions-html-output.php';
@@ -62,7 +57,7 @@ function arve_init() {
 	require_once __DIR__ . '/public/functions-validation.php';
 	require_once __DIR__ . '/shared/functions-shared.php';
 
-	add_action( 'plugins_loaded',      'arve_load_plugin_textdomain' );
+	add_action( 'plugins_loaded', 'arve_load_plugin_textdomain' );
 
 	# Public hooks
 	add_action( 'plugins_loaded',      'arve_create_shortcodes', 999 );
@@ -70,22 +65,22 @@ function arve_init() {
 	add_action( 'plugins_loaded',      'arve_oembed_remove_providers', 998 );
 	add_action( 'wp_enqueue_scripts',  'arve_register_styles', 0 );
 	add_action( 'wp_enqueue_scripts',  'arve_register_scripts', 0 );
+	add_action( 'wp_enqueue_scripts',  'arve_maybe_enqueue_assets' );
 	add_action( 'wp_video_shortcode_override', 'arve_wp_video_shortcode_override', 10, 4 );
 	add_filter( 'widget_text',         'do_shortcode' );
 	add_filter( 'language_attributes', 'arve_html_id' );
 
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_sanitise', -12 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_detect_provider_and_id_from_url', -10 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_detect_youtube_playlist', -8 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_get_media_gallery_video', -7 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_detect_html5', -6 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_iframe_fallback', -4 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_validate', -2 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_get_media_gallery_thumbnail', 0 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_build_subtitles', 20 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_build_iframe_src', 20 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_set_fixed_dimensions', 20 );
-	add_filter( 'shortcode_atts_arve', 'arve_filter_atts_generate_embed_id', 20 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_sanitise', -12 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_detect_provider_and_id_from_url', -10 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_detect_youtube_playlist', -8 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_get_media_gallery_video', -7 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_detect_html5', -6 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_iframe_fallback', -4 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_validate', -2 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_get_media_gallery_thumbnail', 0 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_set_fixed_dimensions', 15 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_attr', 20 );
+	add_filter( 'shortcode_atts_arve', 'arve_sc_filter_build_tracks_html', 20 );
 
 	# Admin Hooks
 	add_action( 'admin_enqueue_scripts', 'arve_admin_enqueue_scripts' );

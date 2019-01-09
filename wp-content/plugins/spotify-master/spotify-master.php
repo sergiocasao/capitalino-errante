@@ -1,10 +1,10 @@
 <?php
 /**
-Plugin Name: Spotify Master
-Plugin URI: http://wordpress.techgasp.com/spotify-master/
-Version: 5.0.7
+Plugin Name: TechGasp Spotify Master
+Plugin URI: https://wordpress.techgasp.com/spotify-master/
+Version: 5.0.18
 Author: TechGasp
-Author URI: http://wordpress.techgasp.com
+Author URI: https://wordpress.techgasp.com
 Text Domain: spotify-master
 Description: Spotify Master allows you to display in your wordpress website musics, playlists and albums of the cool and "booming" music network Spotify.
 License: GPL2 or later
@@ -26,7 +26,7 @@ License: GPL2 or later
 */
 if(!class_exists('spotify_master')) :
 ///////DEFINE///////
-define( 'SPOTIFY_MASTER_VERSION', '5.0.7' );
+define( 'SPOTIFY_MASTER_VERSION', '5.0.18' );
 define( 'SPOTIFY_MASTER_NAME', 'Spotify Master' );
 
 class spotify_master{
@@ -58,7 +58,5 @@ endif;
 require_once( dirname( __FILE__ ) . '/includes/spotify-master-admin.php');
 // HOOK ADMIN ADDONS
 require_once( dirname( __FILE__ ) . '/includes/spotify-master-admin-addons.php');
-// HOOK ADMIN WIDGETS
-require_once( dirname( __FILE__ ) . '/includes/spotify-master-admin-widgets.php');
 // HOOK WIDGET BUTTONS
 require_once( dirname( __FILE__ ) . '/includes/spotify-master-widget-buttons.php');

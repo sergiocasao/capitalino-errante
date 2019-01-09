@@ -1,9 +1,9 @@
-=== Spotify Master ===
+=== TechGasp Spotify Master ===
 Contributors: TechGasp
 Tags: wordpress, plugin, widget, shortcode, techgasp, spotify, music, playlist, mp3, spotify playlist, spotify channel, music player
 Requires at least: 3.5
-Tested up to: 4.7.3
-Stable tag: 5.0.7
+Tested up to: 5.0.1
+Stable tag: 5.0.18
 License: GPLv2 or later
 
 Spotify Master allows you to display in your wordpress website musics, playlists and albums of the cool and "booming" music network Spotify.
@@ -80,17 +80,17 @@ Both the widget and the shortcode framework are fully mobile responsive, a must 
 * Advanced Version Add-ons contain the shortcode framework v5
 * Includes the universal shortcode that can be applied to all pages or posts.
 * Includes the infinite, re-usable individual shortcodes that can be used in any page or post.
-* [Advanced Version Link](https://wordpress.techgasp.com/amazon-master/)
+* [Advanced Version Link](https://wordpress.techgasp.com/spotify-master/)
 
 = What's this Shortcode Framework v5 =
 * It's a framework developed by TechGasp and built upon wordpress marvellous resources.
 * Allows users to quickly and easily display plugins or widgets inside their pages and posts.
 * It's available in all TechGasp advanced version plugins. Lite versions plugins do not include shortcode framework v5
-* [About Shortcode Framework v5](https://wordpress.techgasp.com/techgasp-wordpress-framework-v5/)
+* [About Shortcode Framework v5](https://www.techgasp.com/techgasp-wordpress-framework-v5/)
 
 = Need More Help =
 * [Spotify Master Documentation](https://wordpress.techgasp.com/spotify-master-documentation)
-* [Support](https://wordpress.techgasp.com/support)
+* [Support](https://www.techgasp.com/support)
 
 
 == Screenshots ==
@@ -106,6 +106,52 @@ Both the widget and the shortcode framework are fully mobile responsive, a must 
 
 
 == Changelog ==
+
+= 5.0.18 =
+* IMPORTANT fix Fatal error: Cannot redeclare spotify_master_add_metabox
+
+= 5.0.17 =
+* IMPORTANT UPDATER CHANGES, fixing broken updater
+* Important link changes
+* Important fixes to shortcodes save button in new Gutenberg editor
+
+= 5.0.16 =
+* Fixed lazy updater warning to update within 24h
+* Clean-Up legacy files
+* Important fixes to admin_url()
+
+= 5.0.15 =
+* Complying with new wordpress trademarks policy. Recommended to start plugin name with company name.
+
+= 5.0.14 =
+* Preparing framework 5.1
+* Deprecating the admin menu widgets page, removing code and images. Available widgets can be found in addons page
+* Speed up
+
+= 5.0.13 =
+* Skipping, bad juju
+
+= 5.0.12 =
+* Version catch-up
+* Updater fixes
+
+= 5.0.11 =
+* Updater fixes and new version
+* Wp 4.8.1
+* Several code tweaks and improvements
+
+= 5.0.10 =
+* Fixing admin notices that block plugin installations
+* Adding new footers
+* Adding new images
+
+= 5.0.9 =
+* Versioning
+
+= 5.0.8 =
+* Applying new Spotify API to all widgets and shortcodes
+* Fixing Discography
+* Versioning
 
 = 5.0.7 =
 * Fixing Widget and shortcode heights

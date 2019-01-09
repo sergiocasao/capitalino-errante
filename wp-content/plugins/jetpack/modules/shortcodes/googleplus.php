@@ -11,7 +11,7 @@ define( 'JETPACK_GOOGLEPLUS_EMBED_REGEX', '#^https?://plus\.(sandbox\.)?google\.
 wp_embed_register_handler( 'googleplus', JETPACK_GOOGLEPLUS_EMBED_REGEX, 'jetpack_googleplus_embed_handler' );
 
 function jetpack_googleplus_embed_handler( $matches, $attr, $url ) {
-	wp_enqueue_script( 'jetpack-gplus-api', 'https://apis.google.com/js/plusone.js', array(), null, true );
+	wp_enqueue_script( 'jetpack-gplus-api', 'https://apis.google.com/js/platform.js', array(), null, true );
 	return sprintf( '<div class="g-post" data-href="%s"></div>', esc_url( $url ) );
 }
 
@@ -20,11 +20,13 @@ add_shortcode( 'googleplus', 'jetpack_googleplus_shortcode_handler' );
 function jetpack_googleplus_shortcode_handler( $atts ) {
 	global $wp_embed;
 
-	if ( empty( $atts['url'] ) )
+	if ( empty( $atts['url'] ) ) {
 		return;
+	}
 
-	if ( ! preg_match( JETPACK_GOOGLEPLUS_EMBED_REGEX, $atts['url'] ) )
+	if ( ! preg_match( JETPACK_GOOGLEPLUS_EMBED_REGEX, $atts['url'] ) ) {
 		return;
+	}
 
 	return $wp_embed->shortcode( $atts, $atts['url'] );
 }

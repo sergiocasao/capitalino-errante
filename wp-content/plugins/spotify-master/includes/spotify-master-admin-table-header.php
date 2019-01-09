@@ -29,8 +29,8 @@ $plugin_master_name = constant('SPOTIFY_MASTER_NAME');
 			<td>
 <p>Major player in the Content Management System world! Wordpress, Joomla and Jomsocial Partner with more than 100 high quality, error free Extensions. We provide website customizations and development, SEO Optimization, Facebook Apps, etc. We have fast & furious specialized Hosting for WordPress and Joomla. Our promise, the use of minimal error free code with fast loading times. Check our website for more high quality extensions. Stay up to date by "like" and "follow" our facebook and twitter page for fresh news, releases and upgrades and updates.</p>
 <p>
+<a class="button-primary" href="https://www.techgasp.com" target="_blank" title="Visit Website">Main Website</a>
 <a class="button-primary" href="https://wordpress.techgasp.com" target="_blank" title="Visit Website">Wordpress Website</a>
-<a class="button-primary" href="https://www.techgasp.com" target="_blank" title="Visit Website">Joomla Website</a>
 <a class="button-primary" href="https://hosting.techgasp.com" target="_blank" title="Visit Website">Hosting Website</a>
 <a class="button-secondary" href="https://www.facebook.com/TechGasp" target="_blank" title="Facebook Page">Facebook Page</a>
 <a class="button-secondary" href="https://twitter.com/TechGasp" target="_blank" title="Follow Twitter">Twitter Page</a>
