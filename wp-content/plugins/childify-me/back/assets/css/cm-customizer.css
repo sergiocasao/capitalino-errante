@@ -45,18 +45,20 @@
 #childify-container input {
     width: 100%;
 }
-#childify-container fieldset input {
+#childify-container fieldset input[type=radio]  {
     width: auto;
     min-height: 10px;
 }
-#childify-container input[type=checkbox], 
+#childify-container input[type=checkbox],
 #childify-container input[type=radio] {
     float: none;
 }
+.section-open #childify-container,
 .in-sub-panel #childify-container {
     left: -450px;
 }
-.rtl .in-sub-panel #childify-container { 
+.rtl .section-open #childify-container,
+.rtl .in-sub-panel #childify-container {
     left: auto; right: -450px; height: 0;
 }
 .cm-notice {
